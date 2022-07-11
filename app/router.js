@@ -30,4 +30,5 @@ Router.map(function () {
     this.route('users');
     this.route('admin');
   });
+  this.route('features');
 });

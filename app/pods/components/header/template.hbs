@@ -1,1 +1,14 @@
-{{yield}}
+<div class='bg-blue-200 flex justify-between items-center'>
+  <LinkTo @route='index'>
+    <img
+      src='/images/logo-text.png'
+      alt='infrascrum'
+      width='200px'
+      class='mx-8 p-4'
+    /></LinkTo>
+  <LinkTo @route='features' class='w-2/3 pt-3'>Features</LinkTo>
+  <LinkTo
+    @route='login'
+    class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-blue-500 border-2 border-blue-500'
+  >login</LinkTo>
+</div>
