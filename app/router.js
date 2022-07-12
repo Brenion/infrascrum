@@ -23,6 +23,7 @@ Router.map(function () {
           });
         });
       });
+      this.route('newProject');
     });
   });
   this.route('login');
