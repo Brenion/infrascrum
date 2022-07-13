@@ -1,0 +1,149 @@
+<div class='flex flex-col bg-middlegray h-screen text-gray-600'>
+  <div class=''>
+    <div class='w-40 flex flex-col items-center'>
+
+      <h1
+        class='mt-8 px-6 py-2 border-b-2 text-xl border-gray-200 font-semibold'
+      >Projects</h1>
+
+      <div class='flex justify-between items-center mt-4'>
+        <div>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-10 w-10'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M4 6h16M4 10h16M4 14h16M4 18h16'
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-10 w-10'
+            viewBox='0 0 20 20'
+            fill='currentColor'
+          >
+            <path
+              d='M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z'
+            ></path>
+          </svg>
+        </div>
+      </div>
+
+      {{! add project }}
+
+      <LinkTo @route='projects.newproject' class='py-2 text-blue-500'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='h-8 w-8'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'
+          ></path>
+        </svg>
+      </LinkTo>
+
+    </div>
+  </div>
+
+  <div class=''>
+    <div class='w-40 flex flex-col items-center'>
+      <h1
+        class='mt-6 px-4 py-2 border-b-2 text-xl font-semibold border-gray-200'
+      >Elements</h1>
+      <div class='flex justify-between items-center mt-4'>
+        <div>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-10 w-10'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M4 6h16M4 10h16M4 14h16M4 18h16'
+            ></path>
+          </svg>
+        </div>
+        <div class='rotate-90'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-10 w-10'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M4 6h16M4 10h16M4 14h16M4 18h16'
+            ></path>
+          </svg>
+        </div>
+      </div>
+
+      {{! add Element }}
+
+      <LinkTo @route='projects.newproject' class='py-2 text-blue-500'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='h-8 w-8'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'
+          ></path>
+        </svg>
+      </LinkTo>
+    </div>
+
+  </div>
+  <div class=''>
+    <div class='w-40 flex flex-col items-center'>
+      <h1
+        class='mt-6 px-10 py-2 border-b-2 text-xl font-semibold border-gray-200'
+      >Tasks</h1>
+      <div class='flex justify-between items-center mt-4'>
+
+        <LinkTo @route='projects.newproject' class='py-2 text-blue-500'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-8 w-8'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'
+            ></path>
+          </svg>
+        </LinkTo>
+      </div>
+    </div>
+  </div>
+</div>
