@@ -13,7 +13,7 @@ module.exports = {
         184: '52rem'
       },
       colors: {
-        'chartreuse' : '#7FFF00',
+        'chartreuse': '#7FFF00',
         'middlegray' : '#cacfe0',
         'lightgray' : '##eaecf3',
         'lightblue' : '#BAE6FD',
