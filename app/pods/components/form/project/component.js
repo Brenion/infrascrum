@@ -7,6 +7,7 @@ export default class FormProjectComponent extends Component {
   @action
   createProject(e) {
     e.preventDefault();
+    console.log(e);
     this.args.create({
       projectName: this.projectName,
       description: this.description,
