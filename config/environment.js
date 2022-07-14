@@ -4,10 +4,10 @@ module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'infrascrum',
     podModulePrefix: 'infrascrum/pods',
-    apiPath: 'http://localhost:8080',
     environment,
     rootURL: '/',
     locationType: 'history',
+    apiPath: 'http://localhost:8080',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
