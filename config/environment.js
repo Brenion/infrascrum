@@ -4,7 +4,7 @@ module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'infrascrum',
     podModulePrefix: 'infrascrum/pods',
-    apiPath: 'http://localhost:8080',
+    apiPath: 'http://localhost:3000',
     environment,
     rootURL: '/',
     locationType: 'history',

@@ -2,32 +2,44 @@
   <div class='w-full flex justify-center'><h1
       class='text-center text-3xl mt-4 text-middleblue font-semibold border-b-2 border-b-middleblue'
     >New Project</h1></div>
-  <form>
+  <form {{on 'submit' this.createProject}}>
     <div class='flex text-xl ml-8 pt-6'>
-      <label for='name' class='mr-12'>Name</label>
-      <input type='text' id='name' class='rounded-lg border border-gray-300' />
+      <label for='name' class='mr-16'>Name</label>
+      <Input
+        @type='text'
+        id='name'
+        class='rounded-lg border border-gray-300'
+        @value={{this.projectName}}
+      />
     </div>
     <div class='flex text-xl ml-8 pt-6'>
       <label class='mr-4'>Description</label>
-      <textarea
+      <Textarea
         class='rounded-lg border border-gray-300'
         name=''
         id=''
         cols='30'
         rows='10'
-      ></textarea>
+        @value={{this.description}}
+      />
     </div>
-    <div>
-      <label for='begin'>Begin</label>
-      <input type='date' id='begin' />
-
-      <label for='end'>End</label>
-      <input type='date' id='end' />
+    <div class='text-xl ml-8 pt-6'>
+      <label class='mr-16' for='begin'>Begin</label>
+      <Input @type='date' id='begin' @value={{this.startDate}} />
     </div>
-
-    <button
-      type='submit'
-      class='border-2 bg-white text-middleblue font-semibold border-middleblue px-4 rounded-md duration-200 hover:bg-middleblue hover:text-white'
-    >Create</button>
+    <div class='flex text-xl ml-8 pt-6'>
+      <label class='mr-20' for='end'>End</label>
+      <Input @type='date' id='end' @value={{this.endDate}} />
+    </div>
+    <div class='mt-4 flex flex-col justify-end'>
+      <button
+        type='submit'
+        class='mx-8 border-2 bg-white text-middleblue font-semibold border-middleblue px-4 rounded-md duration-200 hover:bg-middleblue hover:text-white'
+      >Create</button>
+      <button
+        type='reset'
+        class='mx-8 border-2 bg-white text-red-500 font-semibold border-red-500 px-4 rounded-md duration-200 hover:bg-red-600 hover:text-white'
+      >Annuler</button>
+    </div>
   </form>
 </div>
