@@ -1,5 +1,11 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
 
-export default class ProjectsModel extends Model {
+export default class ProjectModel extends Model {
   @attr('string') projectName;
+  @attr('date') startDate;
+  @attr('date') endDate;
+  @attr('string') description;
+  @attr('string') image;
+  @hasMany('user') users;
+  @hasMany('element') elements;
 }
