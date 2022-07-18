@@ -1,5 +1,8 @@
 {{page-title 'Application'}}
 <Header />
-<main class='flex-grow p-8 relative'>
-  {{outlet}}
-</main>
+<div class='flex'>
+  <NavBar />
+  <main class='flex-grow'>
+    {{outlet}}
+  </main>
+</div>
