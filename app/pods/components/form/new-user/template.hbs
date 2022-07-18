@@ -5,7 +5,7 @@
   <div><img
       src='./images/office01.jpg'
       alt='office fun'
-      class='w-[1000px] '
+      class='w-[1000px]'
     /></div>
 
   <div class='bg-gray-100 flex flex-col justify-center items-center sm:py-12'>
@@ -23,43 +23,51 @@
         </div>
       </div>
       <div class='bg-white shadow w-full rounded-lg divide-y divide-gray-200'>
-        <div class='px-5 py-7'>
+        <form class='px-5 py-7' {{on 'submit' this.addingNewUser}}>
           <label class='font-semibold text-sm text-gray-600 pb-1 block'>
             Username
           </label>
           {{! template-lint-disable require-input-label }}
-          <input
-            type='text'
+          <Input
+            @type='text'
             class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            @value={{this.username}}
           />
           <label class='font-semibold text-sm text-gray-600 pb-1 block'>
             Email
           </label>
           {{! template-lint-disable require-input-label }}
-          <input
-            type='email'
+          <Input
+            @type='email'
             class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            @value={{this.email}}
           />
           <label class='font-semibold text-sm text-gray-600 pb-1 block'>
             Password
           </label>
-          <input
-            type='password'
+          <Input
+            @type='password'
             class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            @value={{this.password}}
           />
           <label class='font-semibold text-sm text-gray-600 pb-1 block'>
             Verify password
           </label>
-          <input
-            type='password'
+          <Input
+            @type='password'
             class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            @value={{this.confirm}}
           />
-          <div class='flex justify-between mb-4'>
-
-          </div>
+          {{!-- {{#if this.arePasswordsSimilar}}
+          <p class="text-red-500">Passwords are not similar</p>
+          {{/if}} --}}
+          <div class='flex justify-center my-4'>
+        {{!-- {{log this.isAddButtonDisabled}} --}}
           <button
-            type='button'
-            class='transition duration-200 bg-middleblue hover:bg-nightblue focus:bg-nightblue focus:shadow-sm focus:ring-4 focus:ring-middleblue focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block'
+            type='submit'
+            class='transition duration-200 bg-middleblue hover:bg-nightblue focus:bg-nightblue focus:shadow-sm focus:ring-4 focus:ring-middleblue focus:ring-opacity-50 text-white w-2/3 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block disabled:bg-lightblue'
+            disabled={{this.isAddButtonDisabled}}
+            {{!-- {{on 'click' this.addingNewUser}} --}}
           >
             <span class='inline-block mr-2'>
               Create new account
@@ -79,7 +87,9 @@
               ></path>
             </svg>
           </button>
-        </div>
+
+          </div>
+        </form>
         <div class='py-5'>
           <div class='flex justify-center'>
             <div class='text-center sm:text-left whitespace-nowrap'>

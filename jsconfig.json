@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "es2018",
+      "experimentalDecorators": true,
+      "baseUrl": ".",
+      "paths": {
+        "my-app/tests/*": ["./tests/*"],
+        "my-app/*": ["./app/*"]
+      }
+    },
+    "exclude": [
+      "node_modules",
+      "bower_components",
+      "tmp",
+      "vendor",
+      ".git",
+      "dist"
+    ]
+  }
