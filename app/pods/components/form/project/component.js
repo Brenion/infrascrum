@@ -6,14 +6,13 @@ import { tracked } from '@glimmer/tracking';
 export default class FormProjectComponent extends Component {
   @service project;
   @service router;
+  @service store;
   @tracked selectProject = { projectName: '' };
 
   @action async saveProject(e) {
     e.preventDefault();
-    console.log(e);
-    console.log(this.selectProject);
-    await this.project.create(this.selectProject);
-    console.log(this.model);
+    const rec = this.store.createRecord('project', this.selectProject);
+    await rec.save();
     this.router.transitionTo('projects');
   }
 }

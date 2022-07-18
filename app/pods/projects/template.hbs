@@ -3,8 +3,7 @@
   <div
     class='container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pt-12 gap-8'
   >
-
-    {{#each this.model as |project|}}
+    {{#each @model as |project|}}
 
       <div
         class='max-w-sm bg-white rounded-lg shadow-xl border border-gray-200 shadow-gray-500 bg-middleblue dark:border-gray-700'
@@ -36,7 +35,7 @@
           <button
             type='button'
             class='bg-red-600 px-4 rounded-lg shadow-lg text-white py-1'
-            {{on 'click' (fn this.deleteProject project.id)}}
+            {{on 'click' (fn this.deleteProject project)}}
           >supprimer</button>
         </div>
       </div>
