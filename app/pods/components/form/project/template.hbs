@@ -2,14 +2,14 @@
   <div class='w-full flex justify-center'><h1
       class='text-center text-3xl mt-4 text-middleblue font-semibold border-b-2 border-b-middleblue'
     >New Project</h1></div>
-  <form {{on 'submit' this.createProject}}>
+  <form {{on 'submit' this.saveProject}}>
     <div class='flex text-xl ml-8 pt-6'>
       <label for='name' class='mr-16'>Name</label>
       <Input
         @type='text'
         id='name'
         class='rounded-lg border border-gray-300'
-        @value={{this.projectName}}
+        @value={{this.selectProject.projectName}}
       />
     </div>
     <div class='flex text-xl ml-8 pt-6'>
@@ -20,16 +20,16 @@
         id=''
         cols='30'
         rows='10'
-        @value={{this.description}}
+        @value={{this.selectProject.description}}
       />
     </div>
     <div class='text-xl ml-8 pt-6'>
       <label class='mr-16' for='begin'>Begin</label>
-      <Input @type='date' id='begin' @value={{this.startDate}} />
+      <Input @type='date' id='begin' @value={{this.selectProject.startDate}} />
     </div>
     <div class='flex text-xl ml-8 pt-6'>
       <label class='mr-20' for='end'>End</label>
-      <Input @type='date' id='end' @value={{this.endDate}} />
+      <Input @type='date' id='end' @value={{this.selectProject.endDate}} />
     </div>
     <div class='mt-4 flex flex-col justify-end'>
       <button

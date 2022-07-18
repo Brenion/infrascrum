@@ -1,24 +1,102 @@
 import Service from '@ember/service';
-import { tracked } from 'tracked-built-ins';
 import Project from 'infrascrum/models/project';
 import { isArray } from '@ember/array';
+import { tracked } from '@glimmer/tracking';
+
+// function extractRelationships(object) {
+//   let relationships = {};
+//   for (let relationshipsName in object) {
+//     relationships[relationshipsName] = object[relationshipsName].links.related;
+//   }
+//   return relationships;
+// }
 
 export default class ProjectService extends Service {
-  url = 'http://localhost:3000/projects';
+  @tracked response;
+  storage = {};
+  constructor() {
+    super(...arguments);
+    this.storage.projects = [];
+  }
 
-  readAll() {
-    return this.http.get(this.url);
+  async fetchAll() {
+    let response = await fetch('http://localhost:3000/projects');
+    let json = await response.json();
+    console.log(response);
+    console.log('------------');
+    this.loadAll(json);
+    return this.projects;
   }
-  read(id) {
-    return this.http.get(`${this.url}/${id}`);
+
+  async create(attributes) {
+    console.log('on rentre ici');
+    let payload = { ...attributes };
+    console.log(payload);
+    let response = await fetch('http://localhost:3000/projects', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    let json = await response.json();
+    return json;
   }
-  post(projects) {
-    return this.http.post(this.url, projects);
+
+  // async delete(attributes) {
+  //   console.log('delete');
+  //   let payload = { ...attributes };
+  //   console.log(payload);
+  //   let response = await fetch(`http://localhost:3000/projects/id`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(payload),
+  //   });
+  //   let json = await response.json();
+  //   return json;
+  // }
+
+  load(response) {
+    return this._loadResource(response);
   }
-  update(projects) {
-    return this.http.patch(`${this.url}/${projects.id}`, projects);
+
+  loadAll(json) {
+    let records = [];
+
+    for (let item of json) {
+      records.push(this._loadResource(item));
+    }
+    return records;
   }
-  delete(id) {
-    return this.http.delete(`${this.url}/${id}`);
+
+  _loadResource(data) {
+    let record;
+    let { id, ...attributes } = data;
+
+    //let rels = extractRelationships(relationships);
+    record = new Project({ id, ...attributes });
+
+    this.add(record);
+
+    return record;
+  }
+
+  add(record) {
+    let collection = this.storage.projects;
+
+    let recordIds = collection.map((record) => record.id);
+    if (!recordIds.includes(record.id)) {
+      collection.push(record);
+    }
+  }
+
+  get projects() {
+    return this.storage.projects;
+  }
+  find(filterFn) {
+    let collection = this.projects;
+    return collection.find(filterFn);
   }
 }

@@ -1,8 +1,4 @@
-import { tracked } from '@glimmer/tracking';
-
 export default class ProjectModel {
-  @tracked projectName;
-
   constructor(
     { id, projectName, startDate, endDate, description, image },
     relationships = {}

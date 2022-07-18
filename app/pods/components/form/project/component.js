@@ -1,18 +1,19 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
-export default class FormProjectComponent extends Component {
-  @service router;
+import { tracked } from '@glimmer/tracking';
 
-  @action
-  createProject(e) {
+export default class FormProjectComponent extends Component {
+  @service project;
+  @service router;
+  @tracked selectProject = { projectName: '' };
+
+  @action async saveProject(e) {
     e.preventDefault();
     console.log(e);
-    this.args.create({
-      projectName: this.projectName,
-      description: this.description,
-      startDate: this.startDate,
-      endDate: this.endDate,
-    });
+    console.log(this.selectProject);
+    await this.project.create(this.selectProject);
+    console.log(this.model);
+    this.router.transitionTo('projects');
   }
 }
