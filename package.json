@@ -20,12 +20,7 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
-<<<<<<< HEAD
     "test:ember": "ember test"
-=======
-    "test:ember": "ember test",
-    "startserver": "json-server --watch db.json "
->>>>>>> mirage
   },
   "devDependencies": {
     "@babel/core": ">=7.0.0 <8.0.0",
