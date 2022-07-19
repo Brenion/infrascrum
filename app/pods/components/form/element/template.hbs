@@ -1,1 +1,33 @@
-{{yield}}
+{{page-title 'Elements'}}
+
+<div class="w-full max-w-xs">
+    <form class="bg-white shadow-md rounded px-8 mb-4">
+       
+
+            <h1 class="text-2xl">Element name</h1>
+            
+    
+            <div class='mb-4'>
+            <label class="block text-gray-700 text-sm font-bold mb-2"for='taskName'>Task name</label>
+            <Input @type='text' id='taskName' />
+            </div>
+           <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="lastComment">
+                    Last Comment
+                </label>
+                <Input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                id="lastComment" 
+                @type="text" 
+                placeholder="Comments..." />
+          </div>
+
+                {{!-- <Input 
+                @type="text" 
+                @value={{this.selectElement.name}} 
+                placeholder="Nouveau Element" 
+            />
+
+        </div> --}}
+    </form>
+</div>
+
