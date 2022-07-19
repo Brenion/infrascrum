@@ -1,19 +1,41 @@
 {
-  "posts": [
+  "projects": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "projectName": "mon premier projet",
+      "startDate": "2022-04-23",
+      "endDate": "2022-05-12",
+      "description": "this is my fist project ouhouuu",
+      "image": "/public/images/cyber-glasses-ge8fb0e49a_640.jpg"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "projectName": "mon second projet",
+      "startDate": "2022-04-23",
+      "endDate": "2022-05-12",
+      "description": "roudoudou biloutotoutou ouhouuu",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "projectName": "mon troisieme projet",
+      "startDate": "2022-04-23",
+      "endDate": "2022-05-12",
+      "description": "pouiou pouiou",
+      "image": ""
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "projectName": "hhuuueue",
+      "description": "cazcazdescazczad",
+      "startDate": "2022-07-05",
+      "endDate": "2022-07-22",
+      "id": 6
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

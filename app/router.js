@@ -27,4 +27,5 @@ Router.map(function () {
     this.route('user', { path: 'profils/:id' });
   });
   this.route('features');
+  this.route('testmirage');
 });
