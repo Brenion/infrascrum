@@ -1,11 +1,11 @@
 {{page-title 'ProjectsList'}}
     
         <div class="container">
+                <div class="grid grid-cols-2 gap-2 w-screen">
     {{#each @projects as |project|}}
-            <div class="  mx-auto p-2 text-blue-50">
-                <div class="grid grid-cols-2 gap-4">
+            <div class="text-blue-50">
                     
-                    <div class="bg-middleblue p-4 rounded-xl my-4 shadow-md flex items-center flex-row">
+                    <div class="bg-middleblue p-8 rounded-xl my-4 shadow-md flex items-center flex-row w-3/4 ml-4">
                         <img class="w-16 h-16 mr-4" src={{project.image}} alt="project">
                         <div>
                             
@@ -13,15 +13,15 @@
                         <p class="leading-tight text-justify mb-1">
                             {{project.description}}  
                         </p>
-                        <span>Date {{!-- {{project.date}} --}}</span>  
+                        <span>Date </span>  
                         </div>
                         <LinkTo @route="login" class="bg-lightblue text-nightblue ml-auto rounded-xl p-2">
                             Aller au project
                         </LinkTo>
-                        <button type="button" class="p-2 bg-red-500 rounded-xl ml-auto" {{!-- {{on 'click' (fn this.delete project)}} --}} >X</button>
+                        <button type="button" class="p-2 bg-red-500 rounded-xl ml-auto" {{on 'click' (fn this.deleteProject project)}} >X</button>
                     </div>
                 </div>
-                </div>
     {{/each}}
+                </div>
             </div>
     
