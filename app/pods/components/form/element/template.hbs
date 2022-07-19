@@ -1,33 +1,37 @@
 {{page-title 'Elements'}}
+<div class=" mt-4 w-full h-fit">
+ <form class="bg-white flex justify-center shadow-md rounded px-8 mx-5 w-128">
+   
+    {{!-- {{#each this.element.itemList as |item|}} --}}
+    <div class="element-item">
+        <div class="p-2 mt-2 bg-white border shadow rounded w-96">
+             <Input 
+                    @type="text" 
+                    {{!-- @value={{this.element.name}}  --}}
+                    placeholder="Nouveau Element" 
+                />
+        </div>
+        <div class="p-2 mt-2 bg-white border shadow rounded w-96">
+            <Input 
+                    @type="color" 
+                    placeholder="color" 
+                />
+        </div>
+        <div class="flex items-center justify-between">
+             <button 
+        class="btnPrimary" 
+        type="submit" 
+        disabled={{this.isAddButtonDisabled}}
+        >Remember</button>
+          <a class="inline-block align-baseline font-bold text-medium text-blue-500 hover:text-blue-800" href="#">
+        Forget
+      </a>
 
-<div class="w-full max-w-xs">
-    <form class="bg-white shadow-md rounded px-8 mb-4">
-       
+        </div>
+     
 
-            <h1 class="text-2xl">Element name</h1>
-            
-    
-            <div class='mb-4'>
-            <label class="block text-gray-700 text-sm font-bold mb-2"for='taskName'>Task name</label>
-            <Input @type='text' id='taskName' />
-            </div>
-           <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="lastComment">
-                    Last Comment
-                </label>
-                <Input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                id="lastComment" 
-                @type="text" 
-                placeholder="Comments..." />
-          </div>
+    </div>
 
-                {{!-- <Input 
-                @type="text" 
-                @value={{this.selectElement.name}} 
-                placeholder="Nouveau Element" 
-            />
-
-        </div> --}}
-    </form>
+ </form>
 </div>
 

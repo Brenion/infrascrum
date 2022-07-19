@@ -7,3 +7,6 @@
     font-family: 'Rubik', sans-serif;
 }
 
+.btnPrimary{
+    @apply bg-green-500 hover:bg-green-600  p-2 mt-2 rounded text-white font-medium;
+  }
