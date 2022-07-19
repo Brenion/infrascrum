@@ -11,6 +11,8 @@ export default class FormLoginComponent extends Component {
   password = '';
 
   get isAddButtonDisabled() {
-    return this.username === '' || this.password === '';
+    return (
+      this.username === '' || this.password === '' || this.password.length < 5
+    );
   }
 }

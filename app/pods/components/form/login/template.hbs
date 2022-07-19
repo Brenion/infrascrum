@@ -1,26 +1,37 @@
-<div class='min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12'>
+<div class='bg-gray-100 flex flex-col justify-center sm:py-12 rounded'>
   <div class='p-10 xs:p-0 mx-auto md:w-full md:max-w-md'>
+    <div>
+      <img src='../images/logo.png' alt='infrascrum' class='w-12 mx-auto' />
+    </div>
     <h1 class='font-bold text-center text-3xl mb-5'>
       WELCOME BACK !
     </h1>
     <div class='bg-white shadow w-full rounded-lg divide-y divide-gray-200'>
-      <div class='px-5 py-7'>
+      <form class='px-5 py-7'>
         <label class='font-semibold text-sm text-gray-600 pb-1 block'>
           Username
         </label>
         {{! template-lint-disable require-input-label }}
-        <input type='text' class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full' />
+        <Input
+          @type='text'
+          class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+          @value={{this.username}}
+        />
         <label class='font-semibold text-sm text-gray-600 pb-1 block'>
           Password
         </label>
-        <input type='text' class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full' />
+        <Input
+          @type='text'
+          class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+          @value={{this.password}}
+        />
         <div class='flex justify-between mb-4'>
           <div class='flex items-start'>
             <div class='flex items-center h-5'>
-              <input
+              <Input
                 id='remember'
-                type='checkbox'
-                value=''
+                @type='checkbox'
+                @value=''
                 class='w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-middleblue'
                 required
               />
@@ -56,10 +67,10 @@
             ></path>
           </svg>
         </button>
-      </div>
+      </form>
       <div class='py-5'>
         <div class='flex justify-center'>
-          <div class='text-center sm:text-left whitespace-nowrap'>
+          <LinkTo @route="login.change-password" class='text-center sm:text-left whitespace-nowrap'>
             <button
               class='transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset'
               type='button'
@@ -82,11 +93,13 @@
                 Forgot Password
               </span>
             </button>
-          </div>
-          <div class='text-center sm:text-right whitespace-nowrap items-center'>
-            <button
+          </LinkTo>
+          <LinkTo 
+            @route="index" 
+            class='text-center sm:text-right whitespace-nowrap items-center'>
+            <button type="button"
               class='transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset'
-              type='button'
+              
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -106,16 +119,17 @@
                 Home
               </span>
             </button>
-          </div>
+          </LinkTo>
         </div>
       </div>
     </div>
     <div class='text-sm font-medium text-gray-500 dark:text-gray-300 mt-2 pl-4'>
       Not registered?
-      <a href='#' class='text-nightblue hover:underline hover:text-middleblue'>
-        Create account
-      </a>
+      <LinkTo @route="login.new-user">
+        <a href='#' class='text-nightblue hover:underline hover:text-middleblue'>
+          Create account
+        </a>
+      </LinkTo>
     </div>
   </div>
 </div>
-{{!-- {{yield}} --}}

@@ -3,7 +3,7 @@
   class='w-3/4 flex bg-gray-100 border-gray-300 border-2 justify-center p-4 rounded-md items-center'
 >
   <div><img
-      src='./images/office01.jpg'
+      src='../images/office01.jpg'
       alt='office fun'
       class='w-[1000px]'
     /></div>
@@ -12,7 +12,7 @@
     <div class='pl-10 xs:p-0 mx-auto md:w-full md:max-w-md justify-center'>
       <div>
         <img
-          src='./images/logo-text.png'
+          src='../images/logo-text.png'
           alt='infrascrum'
           class='w-64 mx-auto'
         />
@@ -98,7 +98,7 @@
         </form>
         <div class='py-5'>
           <div class='flex justify-center'>
-            <div class='text-center sm:text-left whitespace-nowrap'>
+            <LinkTo @route="login.change-password" class='text-center sm:text-left whitespace-nowrap'>
               <button
                 class='transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset'
                 type='button'
@@ -121,8 +121,9 @@
                   Forgot Password?
                 </span>
               </button>
-            </div>
-            <div
+            </LinkTo>
+            <LinkTo 
+              @route="login.login"
               class='text-center sm:text-right whitespace-nowrap items-center'
             >
               <button
@@ -147,7 +148,7 @@
                   Sign in
                 </span>
               </button>
-            </div>
+            </LinkTo>
           </div>
         </div>
       </div>
