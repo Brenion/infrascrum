@@ -1,5 +1,42 @@
 {{page-title 'Projects'}}
 <Pages::Projects/>
 
+      <div
+        class='max-w-sm rounded-lg shadow-xl border border-gray-200 shadow-gray-500 bg-middleblue dark:border-gray-700'
+      >
+        <LinkTo @route='projects.id' @model={{project.id}}>
+          <img
+            class='rounded-t-lg'
+            src='images/project/Tic-programmation.jpg'
+            alt='prog'
+          />
+        </LinkTo>
+        <div class='p-5'>
+          <a href='#'>
+            <h5
+              class='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'
+            >{{project.projectName}}</h5>
+          </a>
+          <p
+            class='mb-3 font-normal text-gray-700 dark:text-gray-400'
+          >{{project.description}}</p>
+          <p class='mb-3 font-normal text-gray-700 dark:text-gray-400'>user</p>
+          {{!-- <LinkTo
+            @route='projects/project'
+            @model={{project.id}}
+            class='bg-white px-4 rounded-lg shadow-lg text-middleblue py-1'
+          >
+            settings
+          </LinkTo> --}}
+          {{log project}}
+          <button
+            type='button'
+            class='bg-red-600 px-4 rounded-lg shadow-lg text-white py-1'
+            {{on 'click' (fn this.deleteProject project)}}
+          >supprimer</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
   <div class='left-0 top-0 flex justify-center pt-12 w-full h-full'>
     {{outlet}}</div>
