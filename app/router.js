@@ -28,4 +28,14 @@ Router.map(function () {
   });
   this.route('features');
   this.route('testmirage');
+
+  this.route('pods', function () {
+    this.route('components', function () {
+      this.route('pages', function () {});
+    });
+  });
+
+  this.route('components', function () {
+    this.route('pages', function () {});
+  });
 });
