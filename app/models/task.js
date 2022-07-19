@@ -6,7 +6,7 @@ export default class TaskModel extends Model {
   @attr('string') done;
   @attr('string') time;
   @attr('string') colorTask;
-  @belongsTo('taskType') taskType;
+  @belongsTo('type') type;
   @belongsTo('element') element;
-  @hasMany('checklist') checkLists;
+  @hasMany('checklist') checklists;
 }

@@ -9,11 +9,11 @@ export default function () {
   this.namespace = ''; // make this `/api`, for example, if your API is namespaced
   this.resource('projects');
   this.resource('users');
-  this.resource('user-roles');
+  this.resource('roles');
   this.resource('elements');
   this.resource('checklists');
   this.resource('tasks');
-  this.resource('task-types');
+  this.resource('types');
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
   /*
     Shorthand cheatsheet:

@@ -7,6 +7,6 @@ export default class UserModel extends Model {
   @attr('string') email;
   @attr('string') password;
   @attr('string') image;
-  @belongsTo('user-roles') role;
+  @belongsTo('role') role;
   @hasMany('project') projects;
 }

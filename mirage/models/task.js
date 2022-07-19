@@ -6,7 +6,7 @@ export default Model.extend({
   done: attr,
   time: attr,
   colorTask: attr,
-  taskType: belongsTo('taskType'),
+  type: belongsTo('type'),
   element: belongsTo('element'),
-  checkLists: hasMany('checklist'),
+  checklists: hasMany('checklist'),
 });

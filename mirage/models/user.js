@@ -7,6 +7,6 @@ export default Model.extend({
   email: attr,
   password: attr,
   image: attr,
-  role: belongsTo('user-roles'),
+  role: belongsTo('role'),
   projects: hasMany('project'),
 });
