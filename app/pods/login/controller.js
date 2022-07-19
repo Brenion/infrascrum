@@ -6,16 +6,11 @@ export default class LoginController extends Controller {
   @service store;
   @service router;
 
-  // @action isPasswordNotSimilar() {
-  //   if (this.password !== this.passwordVerif) {
-  //     return true;
-  //   }
-  // }
-
   @action
   async addingNewUser(e) {
     console.log(e);
     let newUser = this.store.createRecord('user', e);
+    // newUser.save();
     console.log(newUser);
   }
 }

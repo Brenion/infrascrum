@@ -1,7 +1,6 @@
 import Model, { attr } from '@ember-data/model';
 
 export default class UserModel extends Model {
-  @attr('string') idUser;
   @attr('string') username;
   @attr('string') firstname;
   @attr('string') lastname;

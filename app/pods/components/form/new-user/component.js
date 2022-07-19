@@ -23,10 +23,25 @@ export default class FormNewUserComponent extends Component {
       this.confirm === ''
     );
   }
+  get confirmSame() {
+    if (this.password === this.confirm) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  get minimumChar() {
+    if (this.password.length < 5) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   @action
   addingNewUser(e) {
-    e.preventDefault;
+    // e.preventDefault;
     console.log(e);
     this.args.create({
       username: this.username,

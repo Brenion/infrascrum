@@ -35,7 +35,8 @@
         </div>
         <button
           type='button'
-          class='transition duration-200 bg-middleblue hover:bg-nightblue focus:bg-nightblue focus:shadow-sm focus:ring-4 focus:ring-middleblue focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block'
+          class='transition duration-200 bg-middleblue hover:bg-nightblue focus:bg-nightblue focus:shadow-sm focus:ring-4 focus:ring-middleblue focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block disabled:bg-lightblue'
+          disabled={{this.isAddButtonDisabled}}
         >
           <span class='inline-block mr-2'>
             Login
