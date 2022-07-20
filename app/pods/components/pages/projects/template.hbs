@@ -12,11 +12,11 @@
                             </p>
                             <span>Date</span>  
                         </div>
-                        <LinkTo @route="projects.id" @model={{project.id}} class="bg-lightblue text-nightblue ml-auto rounded-xl p-2">
+                        <LinkTo @route="projects.id" @model={{project.id}} class="bg-lightblue text-nightblue ml-auto rounded-xl p-2 hover:bg-darkblue hover:text-lightblue hover:duration-300">
                             Aller au project
                         </LinkTo>
-                        <LinkTo @route="projects.newproject" class="p-2 bg-lightblue text-nightblue rounded-xl ml-auto" >Modifier</LinkTo>
-                        <button type="button" class="p-2 bg-red-500 rounded-xl ml-auto" {{on 'click' (fn this.deleteProject project)}} >X</button>
+                        <LinkTo @route="projects.newproject" class="p-2 bg-lightblue text-nightblue rounded-xl ml-auto hover:bg-darkblue hover:text-lightblue hover:duration-300" >Modifier</LinkTo>
+                        <button type="button" class="p-2 bg-red-500 rounded-xl ml-auto hover:bg-white hover:text-red-500 hover:duration-300" {{on 'click' (fn this.deleteProject project)}} >X</button>
                     </div>
                 </div>
             {{/each}}
