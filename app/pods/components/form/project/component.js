@@ -24,12 +24,11 @@ export default class FormProjectComponent extends Component {
         elements: this.args.model.elements,
         users: this.args.model.users,
       });
-    } else {
-      console.log('else');
     }
     console.log(this.selectProject);
   }
   @action async saveProject(e) {
+    console.log(this.selectProject);
     e.preventDefault();
     if (this.selectProject != null) {
       console.log('if');
