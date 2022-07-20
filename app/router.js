@@ -20,7 +20,7 @@ Router.map(function () {
         });
       });
     });
-    this.route('update');
+    this.route('update', { path: 'update/:id' });
   });
   this.route('login');
   this.route('profils', function () {
