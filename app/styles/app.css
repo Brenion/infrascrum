@@ -7,3 +7,39 @@
     font-family: 'Rubik', sans-serif;
 }
 
+
+/* Forms and buttons  */
+
+.formBackground{
+    @apply bg-gray-100 flex flex-col justify-center rounded
+}
+
+.formContainer{
+    @apply p-10 mx-auto md:w-full md:max-w-md
+}
+
+.form{
+    @apply bg-white shadow w-full rounded-lg divide-y divide-gray-200
+}
+
+.label{
+    @apply font-semibold text-sm text-gray-600 pb-1 block
+}
+
+.input{
+    @apply border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full
+}
+
+.btnPrimary{
+    @apply transition duration-200 bg-middleblue hover:bg-nightblue focus:bg-nightblue focus:shadow-sm focus:ring-4 focus:ring-middleblue focus:ring-opacity-50 text-white py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block disabled:bg-lightblue
+}
+
+.btnSecondary {
+    @apply transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset
+}
+
+/* ... */
+
+.errorMsg {
+    @apply text-red-500 text-xs
+}
