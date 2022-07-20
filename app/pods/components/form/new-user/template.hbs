@@ -22,56 +22,56 @@
           Create a new account, it's free !
         </div>
       </div>
-      <div class='bg-white shadow w-full rounded-lg divide-y divide-gray-200'>
+      <div class='form'>
         <form class='px-5 py-7' {{on 'submit' this.addingNewUser}}>
-          <label class='font-semibold text-sm text-gray-600 pb-1 block'>
+          <label class='label'>
             Username
           </label>
           {{! template-lint-disable require-input-label }}
           <Input
             @type='text'
-            class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            class='input'
             @value={{this.username}}
           />
-          <label class='font-semibold text-sm text-gray-600 pb-1 block'>
+          <label class='label'>
             Email
           </label>
           {{! template-lint-disable require-input-label }}
           <Input
             @type='email'
-            class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            class='input'
             @value={{this.email}}
             placeholder="example@mail.com"
           />
-          <label class='font-semibold text-sm text-gray-600 pb-1 block'>
+          <label class='label'>
             Password
           </label>
           <Input
             @type='password'
-            class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            class='input'
             @value={{this.password}}
             placeholder="Password must contain at least 5 characters"
           />
           {{#if this.minimumChar}}
-          <p class="text-red-500 text-xs pt-1 pb-2">Password must contain at least 5 characters</p>
+          <p class="errorMsg pb-4">Password must contain at least 5 characters</p>
           {{/if}}
-          <label class='font-semibold text-sm text-gray-600 pb-1 block'>
+          <label class='label'>
             Verify password
           </label>
           <Input
             @type='password'
-            class='border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full'
+            class='input'
             @value={{this.confirm}}
             placeholder="Please verify your password"
           />
           {{#if this.confirmSame}}
-          <p class="text-red-500 text-xs">Passwords are not similar</p>
+          <p class="errorMsg">Passwords are not similar</p>
           {{/if}}
           <div class='flex justify-center my-4'>
         {{!-- {{log this.isAddButtonDisabled}} --}}
           <button
             type='submit'
-            class='transition duration-200 bg-middleblue hover:bg-nightblue focus:bg-nightblue focus:shadow-sm focus:ring-4 focus:ring-middleblue focus:ring-opacity-50 text-white w-2/3 py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block disabled:bg-lightblue'
+            class='btnPrimary w-2/3'
             disabled={{this.isAddButtonDisabled}}
             {{!-- {{on 'click' this.addingNewUser}} --}}
           >
@@ -100,7 +100,7 @@
           <div class='flex justify-center'>
             <LinkTo @route="login.change-password" class='text-center sm:text-left whitespace-nowrap'>
               <button
-                class='transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset'
+                class='btnSecondary'
                 type='button'
               >
                 <svg
@@ -127,7 +127,7 @@
               class='text-center sm:text-right whitespace-nowrap items-center'
             >
               <button
-                class='transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset'
+                class='btnSecondary'
                 type='button'
               >
                 <svg

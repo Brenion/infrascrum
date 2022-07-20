@@ -6,9 +6,9 @@ export default class FormLoginComponent extends Component {
   @service router;
 
   @tracked
-  username = '';
+  username = 'user';
   @tracked
-  password = '';
+  password = 'machin';
 
   get isAddButtonDisabled() {
     return (
