@@ -7,8 +7,25 @@
       class='mx-8 p-4'
     /></LinkTo>
   <LinkTo @route='features' class='w-2/3 pt-3'>Features</LinkTo>
+  {{!-- {{log this.session.data.authenticated}} --}}
+  {{#if this.session.isAuthenticated}}
+  <button type="button" {{on "click" this.invalidateSession}} class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'>Logout</button>
+  {{else}}
   <LinkTo
-    @route='login'
+    @route='login.login'
     class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
   >login</LinkTo>
+  {{/if}}
 </div>
+
+
+
+
+  {{!-- {{#if this.session.isAuthenticated}}
+  <button type="button" {{on "click" this.invalidateSession}} class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'>Logout</button>
+  {{else}}
+  <LinkTo
+    @route='login.login'
+    class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
+  >login</LinkTo>
+  {{/if}} --}}
