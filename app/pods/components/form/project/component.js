@@ -1,9 +1,6 @@
-import { set } from '@ember/object';
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-import { empty } from '@ember/object/computed';
 
 export default class FormProjectComponent extends Component {
   @service router;
@@ -14,7 +11,7 @@ export default class FormProjectComponent extends Component {
     console.log(this.args.model);
     if (this.args.model != null) {
       console.log('if');
-      set(this, 'selectProject', {
+      this.selectProject = {
         id: this.args.model.id,
         projectName: this.args.model.projectName,
         startDate: this.args.model.startDate,
@@ -23,12 +20,11 @@ export default class FormProjectComponent extends Component {
         image: this.args.model.image,
         elements: this.args.model.elements,
         users: this.args.model.users,
-      });
+      };
     }
     console.log(this.selectProject);
   }
   @action async saveProject(e) {
-    console.log(this.selectProject);
     e.preventDefault();
     if (this.selectProject != null) {
       console.log('if');
@@ -37,7 +33,8 @@ export default class FormProjectComponent extends Component {
       await rec.save();
       this.router.transitionTo('projects');
     } else {
-      const rec = this.store.createRecord('project', this.selectProject);
+      console.log(this.selectProject);
+      const rec = await this.store.createRecord('project', this.selectProject);
       await rec.save();
       this.router.transitionTo('projects');
     }
