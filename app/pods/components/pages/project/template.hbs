@@ -1,3 +1,15 @@
-<h1>pages project</h1>
-
+<div class="flex flex-col">
+    <div class="flex items-end m-6 shadow-xl">
+        <img src={{@model.image}} alt="Projet" class="w-40 h-32 rounded-md">
+        <h3 class="font-bold text-xl ml-12">{{@model.projectName}}</h3>
+    </div>
+<div class="flex">
+{{#each @model.elements as |element|}}
+    <div class="shadow-md m-6 rounded-xl shadow-middleblue flex items-center w-1/4">            
+        <div class="w-20 h-20 bg-lightblue rounded-xl mr-8"></div>
+        <p>{{element.nameElement}}</p>
+    </div>
+{{/each}} 
+</div>
+</div>
 {{yield}}
