@@ -38,8 +38,31 @@
     @apply transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset
 }
 
+
+/* Underlined links  */
+
+.link-underline {
+    border-bottom-width: 0px;
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#001626, #001626);
+    background-size: 0 2px;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#001626, #001626)
+}
+
+.link-underline:hover {
+    background-size: 100% 2px;
+    background-position: 50% 100%
+}
+
+
 /* ... */
 
 .errorMsg {
     @apply text-red-500 text-xs
 }
+

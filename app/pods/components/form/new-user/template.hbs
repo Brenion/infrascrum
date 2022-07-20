@@ -32,6 +32,7 @@
             @type='text'
             class='input'
             @value={{this.username}}
+            placeholder="Enter your username"
           />
           <label class='label'>
             Email
@@ -53,7 +54,7 @@
             placeholder="Password must contain at least 5 characters"
           />
           {{#if this.minimumChar}}
-          <p class="errorMsg pb-4">Password must contain at least 5 characters</p>
+          <p class="errorMsg pb-4 ml-1">Password must contain at least 5 characters</p>
           {{/if}}
           <label class='label'>
             Verify password
