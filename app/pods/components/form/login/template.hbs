@@ -8,7 +8,7 @@
     </h1>
     <div class='form'>
       <form class='px-5 py-7'>
-        <label for="identification" class='label'>
+        <label for='identification' class='label'>
           Username
         </label>
         {{! template-lint-disable require-input-label }}
@@ -16,21 +16,21 @@
           @type='text'
           id='identification'
           class='input'
-          placeholder="Enter your username"
+          placeholder='Enter your username'
           @value={{this.username}}
           {{!-- {{on "change" this.updateIdentification}}  --}}
         />
-        <label for="password" id='password' class='label'>
+        <label for='password' id='password' class='label'>
           Password
         </label>
         <Input
           @type='text'
           class='input'
-          placeholder="Enter your password"
+          placeholder='Enter your password'
           @value={{this.password}}
           {{!-- {{on "change" this.updatePassword}} --}}
         />
-        {{!-- <div class='flex justify-between mb-4'>
+        {{! <div class='flex justify-between mb-4'>
           <div class='flex items-start'>
             <div class='flex items-center h-5'>
               <Input
@@ -47,11 +47,11 @@
               Remember me
             </label>
           </div>
-        </div> --}}
+        </div> }}
         <button
           type='button'
           class='btnPrimary w-full'
-           {{on "click" (fn @authenticate this.username this.password)}}
+          {{on 'click' (fn @authenticate this.username this.password)}}
           disabled={{this.isAddButtonDisabled}}
         >
           <span class='inline-block mr-2'>
@@ -73,16 +73,16 @@
           </svg>
         </button>
         {{#if @errorMessage}}
-          <p class="text-red-500 text-xs my-4 mx-2">{{@errorMessage}}</p>
+          <p class='text-red-500 text-xs my-4 mx-2'>{{@errorMessage}}</p>
         {{/if}}
       </form>
       <div class='py-5'>
         <div class='flex justify-center'>
-          <LinkTo @route="login.change-password" class='text-center sm:text-left whitespace-nowrap'>
-            <button
-              class='btnSecondary'
-              type='button'
-            >
+          <LinkTo
+            @route='login.change-password'
+            class='text-center sm:text-left whitespace-nowrap'
+          >
+            <button class='btnSecondary' type='button'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
@@ -102,13 +102,11 @@
               </span>
             </button>
           </LinkTo>
-          <LinkTo 
-            @route="index" 
-            class='text-center sm:text-right whitespace-nowrap items-center'>
-            <button type="button"
-              class='btnSecondary'
-              
-            >
+          <LinkTo
+            @route='index'
+            class='text-center sm:text-right whitespace-nowrap items-center'
+          >
+            <button type='button' class='btnSecondary'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 class='w-4 h-4 inline-block align-text-bottom'
@@ -133,8 +131,11 @@
     </div>
     <div class='text-sm font-medium text-gray-500 dark:text-gray-300 mt-2 pl-4'>
       Not registered?
-      <LinkTo @route="login.new-user">
-        <a href='#' class='text-nightblue hover:underline hover:text-middleblue'>
+      <LinkTo @route='login.new-user'>
+        <a
+          href='#'
+          class='text-nightblue hover:underline hover:text-middleblue'
+        >
           Create account
         </a>
       </LinkTo>

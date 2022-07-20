@@ -1,6 +1,9 @@
+import { set } from '@ember/object';
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { empty } from '@ember/object/computed';
 
 export default class FormProjectComponent extends Component {
   @service router;
@@ -11,7 +14,7 @@ export default class FormProjectComponent extends Component {
     console.log(this.args.model);
     if (this.args.model != null) {
       console.log('if');
-      this.selectProject = {
+      set(this, 'selectProject', {
         id: this.args.model.id,
         projectName: this.args.model.projectName,
         startDate: this.args.model.startDate,
@@ -19,7 +22,8 @@ export default class FormProjectComponent extends Component {
         description: this.args.model.description,
         image: this.args.model.image,
         elements: this.args.model.elements,
-      };
+        users: this.args.model.users,
+      });
     } else {
       console.log('else');
     }
