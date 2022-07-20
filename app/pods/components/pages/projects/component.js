@@ -6,4 +6,9 @@ export default class PagesProjectsComponent extends Component {
     e.preventDefault();
     project.destroyRecord();
   }
+  // id = '';
+  // @action projectId(project, e) {
+  //   e.preventDefault();
+  //   this.id = project.id;
+  // }
 }

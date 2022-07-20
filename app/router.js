@@ -20,6 +20,7 @@ Router.map(function () {
         });
       });
     });
+    this.route('update');
   });
   this.route('login');
   this.route('profils', function () {
