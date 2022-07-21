@@ -1,14 +1,16 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class FormProjectComponent extends Component {
   @service router;
   @service store;
+  @tracked selectProject = {};
 
   constructor(owner, args) {
     super(owner, args);
-    console.log(this.args.model);
+
     if (this.args.model != null) {
       console.log('if');
       this.selectProject = {
@@ -22,11 +24,11 @@ export default class FormProjectComponent extends Component {
         users: this.args.model.users,
       };
     }
-    console.log(this.selectProject);
   }
   @action async saveProject(e) {
+    console.log(this.selectProject);
     e.preventDefault();
-    if (this.selectProject != null) {
+    if (this.selectProject.id != null) {
       console.log('if');
       const rec = await this.store.findRecord('project', this.selectProject.id);
       rec.setProperties(this.selectProject);
