@@ -39,6 +39,7 @@ specifiers:
   eslint-plugin-node: ^11.1.0
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-qunit: ^7.2.0
+  flowbite: ^1.5.0
   loader.js: ^4.7.0
   npm-run-all: ^4.1.5
   postcss: ^8.1.0
@@ -48,6 +49,9 @@ specifiers:
   tailwindcss: ^3.1.4
   tracked-built-ins: ^3.1.0
   webpack: ^5.72.1
+
+dependencies:
+  flowbite: 1.5.0
 
 devDependencies:
   '@babel/core': 7.18.9
@@ -1904,6 +1908,10 @@ packages:
       fastq: 1.13.0
     dev: true
 
+  /@popperjs/core/2.11.5:
+    resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
+    dev: false
+
   /@simple-dom/interface/1.4.0:
     resolution: {integrity: sha512-l5qumKFWU0S+4ZzMaLXFU8tQZsicHEMEyAxI5kDFGhJsRqDwe0a7/iPA/GdxlGyDKseQQAgIz5kzU7eXTrlSpA==}
     dev: true
@@ -2597,7 +2605,7 @@ packages:
     dev: true
 
   /array-flatten/1.1.1:
-    resolution: {integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=}
+    resolution: {integrity: sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg==}
     dev: true
 
   /array-to-error/1.1.1:
@@ -6630,6 +6638,13 @@ packages:
     resolution: {integrity: sha512-0sQoMh9s0BYsm+12Huy/rkKxVu4R1+r96YX5cG44rHV0pQ6iC3Q+mkoMFaGWObMFYQxCVT+ssG1ksneA2MI9KQ==}
     dev: true
 
+  /flowbite/1.5.0:
+    resolution: {integrity: sha512-QFMKeo9+kUcCSknwAWfcwgi7Mwn+19LbamkizNdbR9d41pnlRjMZA/dOPioZqsU8m1fyfnw6lZDQAV0cO8UePQ==}
+    dependencies:
+      '@popperjs/core': 2.11.5
+      mini-svg-data-uri: 1.4.4
+    dev: false
+
   /flush-write-stream/1.1.1:
     resolution: {integrity: sha512-3Z4XhFZ3992uIq0XOqb9AreonueSYphE6oYbpt5+3u06JWklbsPkNv3ZKkP9Bz/r+1MWCaMoSQ28P85+1Yc77w==}
     dependencies:
@@ -8619,6 +8634,11 @@ packages:
       webpack: 5.73.0
     dev: true
 
+  /mini-svg-data-uri/1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
+    dev: false
+
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
     dev: true
@@ -9932,7 +9952,7 @@ packages:
   /regenerator-transform/0.15.0:
     resolution: {integrity: sha512-LsrGtPmbYg19bcPHwdtmXwbW+TqNvtY4riE3P83foeHRroMbH6/2ddFBfab3t7kbzc7v7p4wbkIecHImqt0QNg==}
     dependencies:
-      '@babel/runtime': 7.12.18
+      '@babel/runtime': 7.18.9
     dev: true
 
   /regex-not/1.0.2:

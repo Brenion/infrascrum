@@ -20,6 +20,7 @@ Router.map(function () {
         });
       });
     });
+    this.route('update', { path: 'update/:id' });
   });
   this.route('login', function () {
     this.route('login');
@@ -32,4 +33,14 @@ Router.map(function () {
   });
   this.route('features');
   this.route('testmirage');
+
+  this.route('pods', function () {
+    this.route('components', function () {
+      this.route('pages', function () {});
+    });
+  });
+
+  this.route('components', function () {
+    this.route('pages', function () {});
+  });
 });

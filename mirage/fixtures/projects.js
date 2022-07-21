@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    projectName: 'fisrt',
+    projectName: 'first',
     description: 'un premier project lala',
     image: 'https://miro.medium.com/max/1200/1*pE2fOVDikEUwiQJlh4ggzg.jpeg',
     userIds: [1],
