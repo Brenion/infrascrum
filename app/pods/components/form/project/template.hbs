@@ -9,6 +9,7 @@
     {{/if}}
   </div>
   <div class='form px-5 py-7'>
+
     <form {{on 'submit' this.saveProject}}>
       <div class='flex'>
         <div class='mr-4 w-1/2'>
@@ -65,22 +66,18 @@
       >
         <Ui::UserSelector />
         <div class='flex m-4'>
-          {{#each this.selectProject.users as |user|}}
+          {{!-- {{#each this.selectProject.users as |user|}}
             <img
               src={{user.image}}
               alt={{user.username}}
               title={{user.username}}
               class='rounded-3xl w-12 h-12 m-2'
             />
-          {{/each}}
+          {{/each}} --}}
         </div>
       </div>
       <div class='mt-4 flex justify-end'>
-        <button
-          type='submit'
-          class='btnPrimary px-6 mr-4'
-          disabled={{this.isAddButtonDisabled}}
-        >
+        <button type='submit' class='btnPrimary px-6 mr-4'>
           {{#if @model.id}}
             Save
           {{else}}
