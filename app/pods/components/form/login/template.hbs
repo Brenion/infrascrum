@@ -48,7 +48,8 @@
             </label>
           </div>
         </div> }}
-        <button
+        <LinkTo
+          @route='projects'
           type='button'
           class='btnPrimary w-full'
           {{on 'click' (fn @authenticate this.username this.password)}}
@@ -71,7 +72,7 @@
               d='M17 8l4 4m0 0l-4 4m4-4H3'
             ></path>
           </svg>
-        </button>
+        </LinkTo>
         {{#if @errorMessage}}
           <p class='text-red-500 text-xs my-4 mx-2'>{{@errorMessage}}</p>
         {{/if}}
