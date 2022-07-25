@@ -1,52 +1,77 @@
-<div class="formBackground">
-    <div class="formContainer">
+<div class="left-0 top-0 flex-justify-center pt-12 w-full h-full">
+    <div class="flex justify-center w-full">
+
+
+<div class="formBackground mt-12 w-2/3">
+      <div class="formContainer">
+               <div>
+                        <img src='../images/logo.png' alt='infrascrum' class='w-12 mx-auto' />
+                </div>
+           <h2 class="text-2xl text-center font-bold text-gray-600 mb-5">Task </h2>
+     </div>
+
+       
     
-           <div class="flex justify-start mb-2">
-                          
-                <h4 class="text-2xl text-gray-600">Task </h4>
-                                                
-          </div>
+         
               
-             <div class="form">
-                    <form class='px-5 py-7' {{on 'submit' this.saveTask}}>
+             <div class="form px-5 py-7">
+                    <form {{on 'submit' this.saveTask}}>
+                        <div class="flex">
+                            <div class="mr-4 w-1/2">
+                               <label 
+                                    class='label' 
+                                    for='Titre Task'>Task</label>
+                                    <Input
+                                    class='input'
+                                    @type='text'
+                                    placeholder='New Task'
+                                    @value={{this.selectTask.nameTask}}
+                                    />
+                              <label 
+                                   class='label' 
+                                   for=''>Color</label>
                         {{!-- template-lint-disable require-input-label --}}
-                        <label 
-                         class='label' 
-                         for='Titre Task'>Task</label>
-                        <Input
-                        class='input'
-                        @type='text'
-                        placeholder='New Task'
-                        @value={{this.selectTask.nameTask}}
-                        />
-                    
-                         <label 
-                         class='label' 
-                         for='Description'>Description</label>
-                        {{!-- template-lint-disable require-input-label --}}
-                        <Input
-                            class='input'
-                            @type='text'
-                            placeholder='add a decription'
-                            @value={{this.selectTask.textTask}}
-                        />
+                              <Input
+                                    class='input'
+                                    @type='color'
+                                    placeholder='color'
+                                    @value={{this.selectTask.colorTask}}
+                                />
                         
-                        <label class='label' for=''>Color</label>
-                        {{!-- template-lint-disable require-input-label --}}
-                        <Input
-                            class='input'
-                            @type='color'
-                            placeholder='color'
-                            @value={{this.selectTask.colorTask}}
-                        />
-                        
-                        <div>
-                            <label for="time">Date Task</label>
-                            <input 
-                              type= "date"
-                              class="input" /> 
+                                <div>
+                                    <label for="time">Date Task</label>
+                                    <input 
+                                    type= "date"
+                                    class="input" /> 
+                                </div>
+                            
+                            </div>
+                            <div class="w-1/2">
+                              <div class="flex justify-around items-center">
+                                    <button 
+                                    type="button"for="chek-list">Check-List</button>
+                                    {{!-- template-lint-disable require-input-label --}}
+                                    <button
+                                    type="button" 
+                                    class="bg-gray-200" for="user-comment">Comments:</button>
+                                </div>
+                             
+                                    <Textarea
+                                    class="input"
+                                    id="user-comment, check-list"
+                                    @value={{this.userComment}}
+                                    rows="8"
+                                    cols="36"
+                                    />
+
+                            </div>
                         </div>
+                        {{!-- template-lint-disable require-input-label --}}
                         
+                    
+                        
+                      
+                        <div class="mt-4 flex justify-end">
                             <button 
                                class=" btnPrimary w-full"     
                                type="submit">
@@ -62,9 +87,12 @@
                                     </svg>
 
                           </button>
+                          </div>
                         
                  </form>
-         </div>  
-  </div>
+                </div>  
+   
 
+    </div>
+  </div>
 </div>
