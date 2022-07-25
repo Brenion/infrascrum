@@ -1,29 +1,70 @@
-<div class="p-10">
-    <div class="flex justify-between">
-        <div class="grid grid-cols-4 gap-5my-5">
-            <div class="bg-gray-200 p-3">
-                <h4 class="flex justify-between items-center">
-                    <span class="text-2xl text-gray-600">Backlog</span>
-                </h4>
-              <div class="bg-white rounded-md p-3 mt-3">
-                <label for="" class="bg-gradient-to-r from-blue-600 to to-blue-200 px-2 py-1 rounded text-white text-sm">Low priority</label>
-                <h5 class="text-md my-3 text-lg leading-6">Description Task</h5>
-                            
-               </div>
+<div class="formBackground">
+    <div class="formContainer">
+    
+           <div class="flex justify-start mb-2">
+                          
+                <h4 class="text-2xl text-gray-600">Task </h4>
+                                                
+          </div>
+              
+             <div class="form">
+                    <form class='px-5 py-7' {{on 'submit' this.saveTask}}>
+                        {{!-- template-lint-disable require-input-label --}}
+                        <label 
+                         class='label' 
+                         for='Titre Task'>Task</label>
+                        <Input
+                        class='input'
+                        @type='text'
+                        placeholder='New Task'
+                        @value={{this.selectTask.nameTask}}
+                        />
+                    
+                         <label 
+                         class='label' 
+                         for='Description'>Description</label>
+                        {{!-- template-lint-disable require-input-label --}}
+                        <Input
+                            class='input'
+                            @type='text'
+                            placeholder='add a decription'
+                            @value={{this.selectTask.textTask}}
+                        />
+                        
+                        <label class='label' for=''>Color</label>
+                        {{!-- template-lint-disable require-input-label --}}
+                        <Input
+                            class='input'
+                            @type='color'
+                            placeholder='color'
+                            @value={{this.selectTask.colorTask}}
+                        />
+                        
+                        <div>
+                            <label for="time">Date Task</label>
+                            <input 
+                              type= "date"
+                              class="input" /> 
+                        </div>
+                        
+                            <button 
+                               class=" btnPrimary w-full"     
+                               type="submit">
+                                    <span class="inline-block mr-2">Add Task</span>
+                                    <svg 
+                                      xmlns="http://www.w3.org/2000/svg" 
+                                      class="h-6 w-6 inline-block" 
+                                      fill="none" 
+                                      viewBox="0 0 24 24" 
+                                      stroke="currentColor" 
+                                      stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
 
-        
-                    <button class=" flex justify-center items-center mt-6 space-x-2 text-lg"
-                    type="submit">
-                    <span>Add Task</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                          </button>
+                        
+                 </form>
+         </div>  
+  </div>
 
-                  </button>
-         </div>
-
-           
-            
-        </div> 
-    </div>
-</div>   
+</div>
