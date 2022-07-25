@@ -4,8 +4,10 @@ import { tracked } from '@glimmer/tracking';
 
 export default class UserService extends Service {
   @service store;
+  @tracked users = {};
 
-  model() {
-    let users = this.store.findAll('user');
+  async model() {
+    let users = await this.store.findAll('user');
+    this.users = users;
   }
 }

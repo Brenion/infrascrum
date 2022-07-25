@@ -23,4 +23,16 @@ export default [
     roleId: 1,
     projectIds: [2, 3],
   },
+  {
+    id: 3,
+    username: 'Miltonton',
+    firstname: 'Milton',
+    lastname: 'Tonton',
+    email: 'Mil.tonton@formulaone.com',
+    password: '123456',
+    image:
+      'https://cdn-edlaf.nitrocdn.com/MrNRpIDxETuUgyzZDDndpsemlknGClCx/assets/static/optimized/rev-e5316bb/wp-content/uploads/2016/06/beautiful-faces-top-surgeon-good-facelift-surgeon-1.jpg',
+    roleId: 1,
+    projectIds: [1, 3],
+  },
 ];

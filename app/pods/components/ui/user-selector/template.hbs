@@ -1,10 +1,10 @@
 <div class='flex justify-center items-center'>
   <label for='username' class='label m-4'>user</label>
   <select name='username' id='username' class='input'>
-
-    {{!-- {{#each this.users as |user|}}
+    {{log this.utilisateurs}}
+    {{#each this.utilisateurs as |user|}}
       <option>{{user.username}}</option>
-    {{/each}} --}}
+    {{/each}}
 
   </select>
 
