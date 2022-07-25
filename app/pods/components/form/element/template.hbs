@@ -1,37 +1,47 @@
-{{page-title 'Elements'}}
-<div class=" mt-4 w-full h-fit">
- <form class="bg-white flex justify-center shadow-md rounded px-8 mx-5 w-128">
-   
-    {{!-- {{#each this.element.itemList as |item|}} --}}
-    <div class="element-item">
-        <div class="p-2 mt-2 bg-white border shadow rounded w-96">
-             <Input 
-                    @type="text" 
-                    {{!-- @value={{this.element.name}}  --}}
-                    placeholder="Nouveau Element" 
-                />
-        </div>
-        <div class="p-2 mt-2 bg-white border shadow rounded w-96">
-            <Input 
-                    @type="color" 
-                    placeholder="color" 
-                />
-        </div>
-        <div class="flex items-center justify-between">
-             <button 
-        class="btnPrimary" 
-        type="submit" 
-        disabled={{this.isAddButtonDisabled}}
-        >Remember</button>
-          <a class="inline-block align-baseline font-bold text-medium text-blue-500 hover:text-blue-800" href="#">
-        Forget
-      </a>
+<div class='formBackground'>
+  <div class='formContainer'>
+    <div>
+      <img src='/images/logo.png' alt='infrascrum' class='w-12 mx-auto' />
+    </div>
+    <h1 class='font-bold text-center text-3xl mb-5 mt-2'>
+      Elements...
+    </h1>
 
+    <div class='form'>
+      <form class='px-5 py-7' {{on 'submit' this.saveElement}}>
+        <Input
+          class='input'
+          @type='text'
+          placeholder='New element'
+          @value={{this.selectElement.nameElement}}
+        />
+        <div class='flex flex-nowrap justify-around'>
+          <label class='label' for=''>color</label>
+          <Input
+            class='border-1 h-6 w-12'
+            @type='color'
+            placeholder='color'
+            @value={{this.selectElement.colorElement}}
+          />
         </div>
-     
 
+        <div class='py-5'>
+          <div class='flex items-center justify-between'>
+            <button
+              class='btnPrimary px-6 mr-4'
+              type='submit'
+              {{!-- disabled={{this.isAddButtonDisabled}} --}}
+            >
+              Save
+            </button>
+
+            <button type='button' class='btnCancel px-4'>
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
 
- </form>
+  </div>
 </div>
-

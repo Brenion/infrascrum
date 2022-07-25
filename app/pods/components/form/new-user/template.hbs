@@ -1,1 +1,158 @@
 {{yield}}
+<div
+  class='w-3/4 flex bg-gray-100 border-gray-300 border-2 justify-center p-4 rounded-md items-center'
+>
+  <div><img
+      src='../images/office01.jpg'
+      alt='office fun'
+      class='w-[1000px]'
+    /></div>
+
+  <div class='bg-gray-100 flex flex-col justify-center items-center sm:py-12'>
+    <div class='pl-10 xs:p-0 mx-auto md:w-full md:max-w-md justify-center'>
+      <div>
+        <img
+          src='../images/logo-text.png'
+          alt='infrascrum'
+          class='w-64 mx-auto'
+        />
+        <div
+          class='text-sm font-italic text-gray-500 dark:text-gray-300 mt-2 pl-4 text-center mb-2'
+        >
+          Create a new account, it's free !
+        </div>
+      </div>
+      <div class='form'>
+        <form class='px-5 py-7' {{on 'submit' this.addingNewUser}}>
+          <label class='label'>
+            Username
+          </label>
+          {{! template-lint-disable require-input-label }}
+          <Input
+            @type='text'
+            class='input'
+            @value={{this.username}}
+            placeholder="Enter your username"
+          />
+          <label class='label'>
+            Email
+          </label>
+          {{! template-lint-disable require-input-label }}
+          <Input
+            @type='email'
+            class='input'
+            @value={{this.email}}
+            placeholder="example@mail.com"
+          />
+          <label class='label'>
+            Password
+          </label>
+          <Input
+            @type='password'
+            class='input'
+            @value={{this.password}}
+            placeholder="Password must contain at least 5 characters"
+          />
+          {{#if this.minimumChar}}
+          <p class="errorMsg pb-4 ml-1">Password must contain at least 5 characters</p>
+          {{/if}}
+          <label class='label'>
+            Verify password
+          </label>
+          <Input
+            @type='password'
+            class='input'
+            @value={{this.confirm}}
+            placeholder="Please verify your password"
+          />
+          {{#if this.confirmSame}}
+          <p class="errorMsg">Passwords are not similar</p>
+          {{/if}}
+          <div class='flex justify-center my-4'>
+        {{!-- {{log this.isAddButtonDisabled}} --}}
+          <button
+            type='submit'
+            class='btnPrimary w-2/3'
+            disabled={{this.isAddButtonDisabled}}
+            {{!-- {{on 'click' this.addingNewUser}} --}}
+          >
+            <span class='inline-block mr-2'>
+              Create new account
+            </span>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              class='w-4 h-4 inline-block'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M17 8l4 4m0 0l-4 4m4-4H3'
+              ></path>
+            </svg>
+          </button>
+
+          </div>
+        </form>
+        <div class='py-5'>
+          <div class='flex justify-center'>
+            <LinkTo @route="login.change-password" class='text-center sm:text-left whitespace-nowrap'>
+              <button
+                class='btnSecondary'
+                type='button'
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  class='w-4 h-4 inline-block align-text-top'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z'
+                  ></path>
+                </svg>
+                <span class='inline-block ml-1'>
+                  Forgot Password?
+                </span>
+              </button>
+            </LinkTo>
+            <LinkTo 
+              @route="login.login"
+              class='text-center sm:text-right whitespace-nowrap items-center'
+            >
+              <button
+                class='btnSecondary'
+                type='button'
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  class='w-4 h-4 inline-block align-text-bottom'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  stroke-width='2'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1'
+                  ></path>
+                </svg>
+                <span class='inline-block ml-1'>
+                  Sign in
+                </span>
+              </button>
+            </LinkTo>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,19 @@
 <h1>pages project</h1>
+{{@model.projectName}}
+{{#each @model.elements as |element|}}
+  <p
+    class='mx-4'
+    style='background-color:{{element.colorElement}}'
+  >{{element.nameElement}}</p>
+
+  {{#each element.tasks as |task|}}
+    <p class='mx-4 bg-yellow-200'>{{task.title}}</p>
+
+    <p class='mx-4 bg-gray-300'>{{task.type.name}}</p>
+    {{#each task.checklists as |tc|}}
+      <p class='mx-4 bg-violet-300'>{{tc.title}}</p>
+    {{/each}}
+  {{/each}}
+{{/each}}
 
 {{yield}}

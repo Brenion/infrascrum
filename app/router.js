@@ -20,12 +20,26 @@ Router.map(function () {
         });
       });
     });
+    this.route('update', { path: 'update/:id' });
   });
-  this.route('login');
+  this.route('login', function () {
+    this.route('login');
+    this.route('change-password');
+    this.route('new-user');
+  });
   this.route('profils', function () {
     this.route('admin');
     this.route('user', { path: 'profils/:id' });
   });
-  this.route('features');
   this.route('testmirage');
+
+  this.route('pods', function () {
+    this.route('components', function () {
+      this.route('pages', function () {});
+    });
+  });
+
+  this.route('components', function () {
+    this.route('pages', function () {});
+  });
 });
