@@ -1,13 +1,6 @@
 <div class='flex m-6 shadow-xl'>
   <img src={{@model.image}} alt='Projet' class='w-48 h-38 rounded-md' />
 
-<<<<<<< HEAD
-  <div class='flex flex-col ml-12 p-4'>
-    <h3 class='font-bold text-xl'>{{@model.projectName}}</h3>
-    <p class='mt-2'>{{@model.description}} </p>
-  </div>
-</div>
-=======
     <div class="flex m-6 shadow-xl">
         <img src={{@model.image}} alt="Projet" class="w-48 h-38 rounded-l-md object-cover">
 
@@ -21,7 +14,6 @@
 {{#each @model.elements as |element|}}
   {{!-- template-lint-disable no-inline-styles --}}
   {{!-- template-lint-disable style-concatenation --}}
->>>>>>> a2c095ac6f3b296be67760f7ed3b3be1be0db68f
 
 <div class='flex'>
   {{#each @model.elements as |element|}}
@@ -35,21 +27,10 @@
     --tw-shadow: 0 1px 6px -1px {{element.colorElement}}, 0 1px 4px -2px {{element.colorElement}};
     --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-<<<<<<< HEAD
-'
-    >
-      <div
-        class='w-20 h-10 rounded-xl mr-8'
-        style='background-color:{{element.colorElement}}'
-      ></div>
-      <p>{{element.nameElement}}</p>
-      <div class='flex items-center'>
-=======
 ">            
         <div class="w-20 h-10 rounded-l-xl mr-8" style='background-color:{{element.colorElement}}'></div>
         <p>{{element.nameElement}}</p>
         <div class="flex items-center">
->>>>>>> a2c095ac6f3b296be67760f7ed3b3be1be0db68f
 
         <button type='button' class='px-2 text-middleblue'><svg
             xmlns='http://www.w3.org/2000/svg'
