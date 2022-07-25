@@ -1,58 +1,96 @@
-<div class='w-184 h-1/2 rounded-lg border border-gray-600 bg-white shadow-lg'>
-  <div class='w-full flex justify-center'><h1
-      class='text-center text-3xl mt-4 text-middleblue font-semibold border-b-2 border-b-middleblue'
-    >New Project</h1></div>
-  <form {{on 'submit' this.saveProject}}>
-    <div class='flex text-xl ml-8 pt-6'>
-      <label for='name' class='mr-16'>Name</label>
-      <Input
-        @type='text'
-        placeholder="Nom du projet"
-        id='name'
-        class='rounded-lg border border-gray-300'
-        @value={{this.selectProject.projectName}}
-      />
+<div class='formBackground mt-12 w-2/3'>
+  <div class='formContainer'>
+    <div>
+      <img src='/images/logo.png' alt='infrascrum' class='w-16 mx-auto' />
     </div>
-    <div class='flex text-xl ml-8 pt-6'>
-      <label class='mr-4'>Description</label>
-      <Textarea
-        class='rounded-lg border border-gray-300'
-        placeholder="Description du projet"
-        name=''
-        id=''
-        cols='30'
-        rows='10'
-        @value={{this.selectProject.description}}
-      />
-    </div>
-    <div class='flex text-xl ml-8 pt-6'>
-      <label for='name' class='mr-16'>Image</label>
-      <Input
-        @type='text'
-        id='image'
-        class='rounded-lg border border-gray-300'
-        placeholder="Lien de l'image"
-        @value={{this.selectProject.image}}
-      />
-    </div>
-    <div class='text-xl ml-8 pt-6'>
-      <label class='mr-16' for='begin'>Begin</label>
-      <Input @type='date' id='begin' @value={{this.selectProject.startDate}} />
-    </div>
-    <div class='flex text-xl ml-8 pt-6'>
-      <label class='mr-20' for='end'>End</label>
-      <Input @type='date' id='end' @value={{this.selectProject.endDate}} />
-    </div>
-    
-    <div class='mt-4 flex flex-col justify-end'>
-      <button
-        type='submit'
-        class='mx-8 border-2 bg-white text-middleblue font-semibold border-middleblue px-4 rounded-md duration-200 hover:bg-middleblue hover:text-white'
-      >Create</button>
-      <button
-        type='reset'
-        class='mx-8 border-2 bg-white text-red-500 font-semibold border-red-500 px-4 rounded-md duration-200 hover:bg-red-600 hover:text-white'
-      >Annuler</button>
-    </div>
-  </form>
+    {{#if @model.id}}
+      <h1 class='font-bold text-center text-3xl mb-5'>Dashboard</h1>{{else}}
+      <h1 class='font-bold text-center text-3xl mb-5'>New Project</h1>
+    {{/if}}
+  </div>
+  <div class='form px-5 py-7'>
+
+    <form {{on 'submit' this.saveProject}}>
+      <div class='flex'>
+        <div class='mr-4 w-1/2'>
+          <label for='name' class='label'>Name</label>
+          <Input
+            @type='text'
+            placeholder='Nom du projet'
+            id='name'
+            class='input'
+            @value={{this.selectProject.projectName}}
+          />
+
+          <label for='name' class='label'>Image</label>
+          <Input
+            @type='text'
+            id='image'
+            class='input'
+            placeholder="Lien de l'image"
+            @value={{this.selectProject.image}}
+          />
+          <div class='flex justify-around items-center'>
+            <label class='label mr-4' for='begin'>Begin</label>
+            <Input
+              @type='date'
+              id='begin'
+              @value={{this.selectProject.startDate}}
+              class='input'
+            />
+            <label class='label mx-4' for='end'>End</label>
+            <Input
+              @type='date'
+              id='end'
+              @value={{this.selectProject.endDate}}
+              class='input'
+            />
+          </div>
+        </div>
+        <div class='w-1/2'>
+          <label class='label'>Description</label>
+          <Textarea
+            class='input'
+            placeholder='Description du projet'
+            name=''
+            id=''
+            cols='30'
+            rows='10'
+            @value={{this.selectProject.description}}
+          />
+        </div>
+
+      </div>
+      <div
+        class='border rounded-lg border-gray-200 flex justify-between items-center'
+      >
+        <Ui::UserSelector />
+        <div class='flex m-4'>
+          {{#each this.selectProject.users as |user|}}
+            <div class='flex w-12 h-12 m-1'>
+              <img
+                class='object-cover rounded-3xl'
+                src={{user.image}}
+                alt={{user.username}}
+                title={{user.username}}
+              /></div>
+          {{/each}}
+        </div>
+      </div>
+      <div class='mt-4 flex justify-end'>
+        <button type='submit' class='btnPrimary px-6 mr-4'>
+          {{#if @model.id}}
+            Save
+          {{else}}
+            Create
+          {{/if}}
+        </button>
+        <LinkTo
+          @route='projects'
+          type='reset'
+          class='btnCancel px-6'
+        >Cancel</LinkTo>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,14 +1,60 @@
-<div class='bg-lightblue flex justify-between items-center'>
-  <LinkTo @route='index'>
-    <img
+<div
+  class='bg-lightblue shadow-md flex justify-between items-center text-darkblue'>
+  <div class="flex items-end ">
+    <LinkTo @route='index'>
+      <img
       src='/images/logo-text.png'
       alt='infrascrum'
-      width='200px'
+      width='250px'
       class='mx-8 p-4'
-    /></LinkTo>
-  <LinkTo @route='features' class='w-2/3 pt-3'>Features</LinkTo>
-  <LinkTo
-    @route='login.login'
-    class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
-  >login</LinkTo>
+      />
+    </LinkTo>
+
+    <button
+      class='px-4 mb-4'
+      type='button'
+      {{on 'click' this.visibleFeature}}
+    >Features 
+    </button>
+    {{#if this.isVisibleToo}}
+      <div
+        class='bg-gray-200 absolute top-0 left-0 flex justify-center items-center w-full h-full bg-opacity-70'
+      >
+        <Pages::Features @visibleFeature={{this.visibleFeature}} />
+      </div>
+
+    {{/if}}
+    {{#if this.session.isAuthenticated}}
+      <LinkTo @route='projects' class="mb-4"> Projects</LinkTo>
+    {{/if}}
+
+
+</div>
+  <div class='w-2/3 text-lg mt-4 flex items-end justify-end'>
+
+    {{!-- {{log this.session.data.authenticated}} --}}
+    {{#if this.session.isAuthenticated}}
+      <button
+        type='button'
+        {{on 'click' this.invalidateSession}}
+        class='mx-8 px-4 py-2.5 transition duration-200 bg-red-500 hover:bg-red-700 focus:bg-red-700 focus:shadow-sm focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 text-white rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block disabled:bg-red-300'
+      >Logout</button>
+    {{else}}
+      <div
+        class='border border-lightblue w-fit rounded-xl m-5 shadow-sm flex items-center'
+      >
+
+        <LinkTo
+          @route='login.new-user'
+          class='m-0 border-none px-4 py-2 rounded-l-xl transition duration-600 bg-neutral-50 hover:bg-darkblue text-black hover:text-white text-sm shadow-sm hover:shadow-md font-semibold text-center'
+        >Register</LinkTo>
+
+        <LinkTo
+          @route='login.login'
+          class='m-0 border-none px-4 py-2 rounded-r-xl transition duration-600 bg-middleblue hover:bg-nightblue text-white text-sm shadow-sm hover:shadow-md font-semibold text-center'
+        >Login</LinkTo>
+
+      </div>
+    {{/if}}
+  </div>
 </div>

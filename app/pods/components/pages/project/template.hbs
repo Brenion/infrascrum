@@ -1,4 +1,31 @@
-<div class="flex flex-col">
+<h1>pages project</h1>
+{{@model.projectName}}
+{{#each @model.elements as |element|}}
+  <p
+    class='mx-4'
+    style='background-color:{{element.colorElement}}'
+  >{{element.nameElement}}</p>
+
+  {{#each element.tasks as |task|}}
+    <p class='mx-4 bg-yellow-200'>{{task.title}}</p>
+
+    <p class='mx-4 bg-gray-300'>{{task.type.name}}</p>
+    {{#each task.checklists as |tc|}}
+      <p class='mx-4 bg-violet-300'>{{tc.title}}</p>
+    {{/each}}
+  {{/each}}
+{{/each}}
+
+    <Pages::Task/>
+    <p>{{task.title}} </p>
+
+{{/each}}
+{{/each}} 
+</div>
+</div>
+{{yield}}
+
+{{!-- <div class="flex flex-col">
     <div class="flex items-end m-6 shadow-xl">
         <img src={{@model.image}} alt="Projet" class="w-40 h-32 rounded-md">
         <h3 class="font-bold text-xl ml-12">{{@model.projectName}}</h3>
@@ -18,4 +45,4 @@
 {{/each}} 
 </div>
 </div>
-{{yield}}
+{{yield}} --}}

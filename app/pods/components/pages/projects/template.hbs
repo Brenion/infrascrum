@@ -1,25 +1,125 @@
 {{page-title 'ProjectsList'}}
-    <div class="container">
-        <div class="grid grid-cols-2 gap-2 w-screen">
-            {{#each @projects as |project|}}
-                <div class="text-blue-50">
-                    <div class="bg-middleblue p-8 rounded-xl my-4 shadow-md flex items-center flex-row w-3/4 ml-4">
-                        <img class="w-16 h-16 mr-4" src={{project.image}} alt="project">
-                        <div>
-                            <h3 class="font-semibold text-lg mb-1">{{project.projectName}}</h3>
-                            <p class="leading-tight text-justify mb-1">
-                            {{project.description}}  
-                            </p>
-                            <span>Date</span>  
-                        </div>
-                        <LinkTo @route="projects.id" @model={{project.id}} class="bg-lightblue text-nightblue ml-auto rounded-xl p-2 hover:bg-darkblue hover:text-lightblue hover:duration-300">
-                            Aller au project
-                        </LinkTo>
-                        <LinkTo @route="projects.newproject" class="p-2 bg-lightblue text-nightblue rounded-xl ml-auto hover:bg-darkblue hover:text-lightblue hover:duration-300" >Modifier</LinkTo>
-                        <button type="button" class="p-2 bg-red-500 rounded-xl ml-auto hover:bg-white hover:text-red-500 hover:duration-300" {{on 'click' (fn this.deleteProject project)}} >X</button>
-                    </div>
-                </div>
-            {{/each}}
+<div>
+  <div
+    class='mt-12 mx-auto grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 pt-6 gap-16'
+  >
+    {{#each @projects as |project|}}
+
+      <div
+        class='bg-blue-100 rounded-xl shadow-md text-gray-700 w-128 relative'
+      >
+        <LinkTo @route='projects.id' @model={{project.id}}>
+          <div class='flex bg-blue-500 w-128 h-72 justify-center rounded-t-xl'>
+            <img
+              class='object-cover w-128 rounded-t-xl'
+              src={{project.image}}
+              alt='project'
+            /></div>
+
+          <div>
+            <h1
+              class='font-semibold text-lg m-2 px-4'
+            >{{project.projectName}}</h1>
+            <div
+              class='bg-white bg-opacity-70 rounded-sm h-32 mx-2 p-2 overflow-scroll'
+            >
+              <p class='leading-tight text-justify mb-1 text-gray-500'>
+                {{project.description}}
+              </p>
+            </div>
+            <div class='bg-white bg-opacity-50 flex justify-around mt-4 p-2'>
+              <p>
+                Starting project :
+                <span class='text-green-500'>{{project.startDate}}</span></p>
+              <p>
+                Ending project :
+                <span class='text-red-500'>{{project.endDate}}</span></p>
+
+            </div>
+          </div>
+        </LinkTo>
+        <div
+          class='flex absolute left-0 top-0 bg-blue-200 bg-opacity-70 rounded-tl-xl rounded-br-lg px-4'
+        >
+          <LinkTo
+            @route='projects.update'
+            @model={{project.id}}
+            class='p-2 text-gray-700 rounded-xl ml-auto'
+          ><svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='h-10 w-10'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='2'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+              ></path>
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+              ></path>
+            </svg></LinkTo>
+          <button
+            type='button'
+            class='rotate-45 text-red-700'
+            {{on 'click' (fn this.deleteProject project)}}
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='h-10 w-10'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='2'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'
+              ></path>
+            </svg></button>
+
         </div>
-    </div>
-{{yield}}
+        <div
+          class='flex absolute right-0 top-0 bg-blue-200 bg-opacity-70 rounded-tr-xl rounded-bl-lg px-6'
+        >
+
+          {{#each project.users as |user|}}
+            <div class='flex w-12 h-12 my-1 -mx-2'>
+              <img
+                class='object-cover rounded-3xl'
+                src={{user.image}}
+                alt={{user.username}}
+                title={{user.username}}
+              /></div>
+          {{/each}}
+
+        </div>
+      </div>
+
+    {{/each}}
+  </div>
+  <div class='flex justify-center mt-16'>
+    <LinkTo @route='projects.newproject' class='py-2 text-blue-300'>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        class='h-12 w-12'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke='currentColor'
+        stroke-width='2'
+      >
+        <path
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          d='M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z'
+        ></path>
+      </svg>
+    </LinkTo>
+  </div>
+</div>

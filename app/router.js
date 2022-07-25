@@ -20,6 +20,7 @@ Router.map(function () {
         });
       });
     });
+    this.route('update', { path: 'update/:id' });
   });
   this.route('login', function () {
     this.route('login');
@@ -30,7 +31,6 @@ Router.map(function () {
     this.route('admin');
     this.route('user', { path: 'profils/:id' });
   });
-  this.route('features');
   this.route('testmirage');
 
   this.route('pods', function () {

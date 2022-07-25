@@ -1,3 +1,4 @@
+import Mirage from 'ember-cli-mirage';
 export default function () {
   // These comments are here to help you get started. Feel free to delete them.
   /*
@@ -14,10 +15,36 @@ export default function () {
   this.resource('checklists');
   this.resource('tasks');
   this.resource('types');
+
+  function formEncodedToJson(encoded) {
+    let result = {};
+    encoded.split('&').forEach(function (part) {
+      let item = part.split('=');
+      result[item[0]] = decodeURIComponent(item[1]);
+    });
+    return result;
+  }
+
+  this.post('/login', function (db, request) {
+    let params = formEncodedToJson(request.requestBody);
+    if (params.username === 'user' && params.password === 'machin') {
+      return {
+        access_token: 'SecretToken',
+        token_type: 'bearer',
+        user: {
+          username: 'Alain Deloin',
+          infoUltraImportante: 'Rien',
+        },
+      };
+    } else {
+      let body = { errors: 'Email or password is invalid' };
+      return new Mirage.Response(401, {}, body);
+    }
+  });
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
   /*
     Shorthand cheatsheet:
-
+image.png
     this.get('/posts');
     this.post('/posts');
     this.get('/posts/:id');
