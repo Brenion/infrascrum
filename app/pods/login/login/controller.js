@@ -8,6 +8,7 @@ export default class LoginLoginController extends Controller {
   @tracked username;
   @tracked password;
   @service session;
+  @service router;
 
   @action
   async authenticate(username, password) {
@@ -24,6 +25,7 @@ export default class LoginLoginController extends Controller {
 
     if (this.session.isAuthenticated) {
       console.log('TEST');
+      this.router.transitionTo('projects');
     }
   }
 }

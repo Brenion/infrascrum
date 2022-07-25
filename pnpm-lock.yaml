@@ -22,6 +22,7 @@ specifiers:
   ember-cli-postcss: ^8.0.0
   ember-cli-sri: ^2.1.1
   ember-cli-terser: ^4.0.2
+  ember-click-outside: ^5.0.1
   ember-data: ~4.4.0
   ember-export-application-global: ^2.0.1
   ember-fetch: ^8.1.1
@@ -72,6 +73,7 @@ devDependencies:
   ember-cli-postcss: 8.0.0
   ember-cli-sri: 2.1.1
   ember-cli-terser: 4.0.2
+  ember-click-outside: 5.0.1_@babel+core@7.18.9
   ember-data: 4.4.0_941d08ac27e144887a91138e4068a1e8
   ember-export-application-global: 2.0.1
   ember-fetch: 8.1.1
@@ -5360,6 +5362,18 @@ packages:
       - encoding
       - supports-color
       - utf-8-validate
+    dev: true
+
+  /ember-click-outside/5.0.1_@babel+core@7.18.9:
+    resolution: {integrity: sha512-RilHTCQvD/5d9pZf6H7MbmBWlVl68nhvn1BPLtfpt9iCNyhtnh5SgwIWGHkJRuTz+DooN6hqTe4Wmq8Zk6kYDw==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 5.7.2
+      ember-modifier: 3.2.7_@babel+core@7.18.9
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
     dev: true
 
   /ember-compatibility-helpers/1.2.6_@babel+core@7.18.9:

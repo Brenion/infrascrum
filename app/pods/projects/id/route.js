@@ -4,6 +4,8 @@ import { service } from '@ember/service';
 export default class ProjectsIdRoute extends Route {
   @service store;
   model(params) {
-    return this.store.findRecord('project', params.id);
+    let project = this.store.findRecord('project', params.id);
+    let element = this.store.findAll('element');
+    return { project: project, element: element };
   }
 }

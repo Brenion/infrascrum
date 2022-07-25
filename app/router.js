@@ -31,7 +31,6 @@ Router.map(function () {
     this.route('admin');
     this.route('user', { path: 'profils/:id' });
   });
-  this.route('features');
   this.route('testmirage');
 
   this.route('pods', function () {

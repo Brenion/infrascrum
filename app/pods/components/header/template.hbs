@@ -1,4 +1,4 @@
-<div class='bg-lightblue flex justify-between items-center'>
+<div class='bg-lightblue flex justify-between items-end'>
   <LinkTo @route='index'>
     <img
       src='/images/logo-text.png'
@@ -6,22 +6,44 @@
       width='200px'
       class='mx-8 p-4'
     /></LinkTo>
-  <LinkTo @route='features' class='w-2/3 pt-3'>Features</LinkTo>
+  <div class='w-2/3 text-lg py-4'>
+    {{! <LinkTo @route='features' class='p-3'>Features</LinkTo> }}
+
+    <button
+      class='px-4'
+      type='button'
+      {{on 'click' this.visibleFeature}}
+    >Features </button>
+    {{#if this.isVisibleToo}}
+      <div
+        class='bg-gray-200 absolute top-0 left-0 flex justify-center items-center w-full h-full bg-opacity-70'
+      >
+        <Pages::Features @visibleFeature={{this.visibleFeature}} />
+      </div>
+
+    {{/if}}
+    {{#if this.session.isAuthenticated}}
+      <LinkTo @route='projects'> Projects</LinkTo>
+    {{/if}}
+  </div>
   {{!-- {{log this.session.data.authenticated}} --}}
-  {{#if this.session.isAuthenticated}}
-  <button type="button" {{on "click" this.invalidateSession}} class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'>Logout</button>
-  {{else}}
-  <LinkTo
-    @route='login.login'
-    class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
-  >login</LinkTo>
-  {{/if}}
+  <div class='py-4'>
+    {{#if this.session.isAuthenticated}}
+      <button
+        type='button'
+        {{on 'click' this.invalidateSession}}
+        class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
+      >Logout</button>
+    {{else}}
+      <LinkTo
+        @route='login.login'
+        class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
+      >login</LinkTo>
+    {{/if}}
+  </div>
 </div>
 
-
-
-
-  {{!-- {{#if this.session.isAuthenticated}}
+{{!-- {{#if this.session.isAuthenticated}}
   <button type="button" {{on "click" this.invalidateSession}} class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'>Logout</button>
   {{else}}
   <LinkTo
