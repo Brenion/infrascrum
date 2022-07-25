@@ -7,7 +7,8 @@ export default [
     image: 'https://miro.medium.com/max/1200/1*pE2fOVDikEUwiQJlh4ggzg.jpeg',
     startDate: '22-03-2015',
     endDate: '01-09-2018',
-    userIds: [1],
+    adminId: 1,
+    userIds: [2],
     elementIds: [1, 2, 3],
   },
   {
@@ -19,7 +20,8 @@ export default [
       'https://media.slidesgo.com/storage/7277529/conversions/14-web-project-proposal-thumb.jpg',
     startDate: '22-03-2015',
     endDate: '01-09-2018',
-    userIds: [1, 2],
+    adminId: 2,
+    userIds: [1, 3, 4],
     elementIds: [4],
   },
   {
@@ -31,6 +33,7 @@ export default [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHxVkqLYsLOb7dOS9cdOOlG4XDgt8PgupVmQ&usqp=CAU',
     startDate: '22-03-2015',
     endDate: '01-09-2018',
-    userIds: [2],
+    adminId: 2,
+    userIds: [3],
   },
 ];

@@ -8,5 +8,6 @@ export default Model.extend({
   password: attr,
   image: attr,
   role: belongsTo('role'),
+  padmins: hasMany('project'),
   projects: hasMany('project'),
 });

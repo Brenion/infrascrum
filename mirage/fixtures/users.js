@@ -9,7 +9,8 @@ export default [
     image:
       'https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/04/crying_toddler-1296x728-header.jpg?w=1155&h=1528',
     roleId: 1,
-    projectIds: [1, 2],
+    padminsIds: [1],
+    projectIds: [2],
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ export default [
     image:
       'https://cdn-edlaf.nitrocdn.com/MrNRpIDxETuUgyzZDDndpsemlknGClCx/assets/static/optimized/rev-e5316bb/wp-content/uploads/2016/06/beautiful-faces-top-surgeon-good-facelift-surgeon-1.jpg',
     roleId: 1,
+    padminsIds: [2, 3],
     projectIds: [2, 3],
   },
   {
@@ -30,9 +32,22 @@ export default [
     lastname: 'Tonton',
     email: 'Mil.tonton@formulaone.com',
     password: '123456',
-    image:
-      'https://cdn-edlaf.nitrocdn.com/MrNRpIDxETuUgyzZDDndpsemlknGClCx/assets/static/optimized/rev-e5316bb/wp-content/uploads/2016/06/beautiful-faces-top-surgeon-good-facelift-surgeon-1.jpg',
+    image: 'https://i.unimedias.fr/2022/03/15/istock-165945036.jpg',
     roleId: 1,
-    projectIds: [1, 3],
+    padminsIds: [],
+    projectIds: [1, 2, 3],
+  },
+  {
+    id: 4,
+    username: 'Pignouf',
+    firstname: 'Patrick',
+    lastname: 'Pagnoulle',
+    email: 'pat.patrouille@pp.com',
+    password: '123456',
+    image:
+      'https://us.123rf.com/450wm/leungchopan/leungchopan1405/leungchopan140500950/28542435-s%C3%A9rieux-asie-b%C3%A9b%C3%A9-sourcil-sourcils.jpg',
+    roleId: 1,
+    padminsIds: [],
+    projectIds: [2],
   },
 ];
