@@ -1,11 +1,12 @@
-<div class='bg-lightblue flex justify-between items-end'>
+<div class='bg-lightblue shadow-md flex justify-between items-center text-darkblue'>
   <LinkTo @route='index'>
     <img
       src='/images/logo-text.png'
       alt='infrascrum'
-      width='200px'
+      width='250px'
       class='mx-8 p-4'
-    /></LinkTo>
+    />
+  </LinkTo>
   <div class='w-2/3 text-lg py-4'>
     {{! <LinkTo @route='features' class='p-3'>Features</LinkTo> }}
 
@@ -22,32 +23,18 @@
       </div>
 
     {{/if}}
-    {{#if this.session.isAuthenticated}}
-      <LinkTo @route='projects'> Projects</LinkTo>
-    {{/if}}
-  </div>
   {{!-- {{log this.session.data.authenticated}} --}}
-  <div class='py-4'>
-    {{#if this.session.isAuthenticated}}
-      <button
-        type='button'
-        {{on 'click' this.invalidateSession}}
-        class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
-      >Logout</button>
-    {{else}}
-      <LinkTo
-        @route='login.login'
-        class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
-      >login</LinkTo>
-    {{/if}}
-  </div>
-</div>
-
-{{!-- {{#if this.session.isAuthenticated}}
-  <button type="button" {{on "click" this.invalidateSession}} class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'>Logout</button>
+  {{#if this.session.isAuthenticated}}
+  <button type="button" {{on "click" this.invalidateSession}} class='mx-8 px-4 py-2.5 transition duration-200 bg-red-500 hover:bg-red-700 focus:bg-red-700 focus:shadow-sm focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 text-white rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block disabled:bg-red-300'>Logout</button>
   {{else}}
-  <LinkTo
-    @route='login.login'
-    class='mx-8 px-4 py-1 bg-white rounded-lg font-semibold text-middleblue border-2 border-middleblue'
-  >login</LinkTo>
-  {{/if}} --}}
+    <div class="border border-lightblue w-fit rounded-xl m-5 shadow-sm flex items-center">
+        <button type="button" class="m-0 border-none px-4 py-2 rounded-l-xl transition duration-600 bg-neutral-50 hover:bg-darkblue text-black hover:text-white text-sm shadow-sm hover:shadow-md font-semibold text-center">
+          <LinkTo @route="login.new-user">Register</LinkTo>
+        </button>
+        <button type="button" class="m-0 border-none px-4 py-2 rounded-r-xl transition duration-600 bg-middleblue hover:bg-nightblue text-white text-sm shadow-sm hover:shadow-md font-semibold text-center">
+          <LinkTo @route='login.login'>Login</LinkTo>
+        </button>
+    </div>
+  {{/if}}
+</div>
+</div>

@@ -6,4 +6,13 @@ export default class NavBarComponent extends Component {
   @action visibleElement() {
     this.isVisibleElement = !this.isVisibleElement;
   }
+  @tracked isExpand = true;
+  @action shrinkNavbar() {
+    this.isExpand = false;
+    console.log(this.isExpand);
+  }
+  @action expandNavbar() {
+    this.isExpand = true;
+    console.log(this.isExpand);
+  }
 }
