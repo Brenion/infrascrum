@@ -88,9 +88,17 @@
         <div
           class='flex absolute right-0 top-0 bg-blue-200 bg-opacity-70 rounded-tr-xl rounded-bl-lg px-6'
         >
-
+          <div class='flex w-12 h-12 my-1 -mx-2'>
+            <img
+              class='object-cover rounded-3xl'
+              src={{project.admin.image}}
+              alt={{project.admin.username}}
+              title={{project.admin.username}}
+            /></div>
           {{#each project.users as |user|}}
+
             <div class='flex w-12 h-12 my-1 -mx-2'>
+
               <img
                 class='object-cover rounded-3xl'
                 src={{user.image}}
