@@ -21,7 +21,7 @@ export default class FormProjectComponent extends Component {
         description: this.args.model.description,
         image: this.args.model.image,
         elements: this.args.model.elements,
-        // admin: this.args.model.admin,
+        admin: this.args.model.admin,
         users: this.args.model.users,
       };
     }

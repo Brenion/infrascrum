@@ -64,7 +64,7 @@
       <div
         class='border rounded-lg border-gray-200 flex justify-between items-center'
       >
-        {{!-- <Ui::UserSelector @project={{@model}} /> --}}
+        <Ui::UserSelector @project={{@model}} />
         <div class='flex m-4'>
 
           <div class='flex w-12 h-12 m-1'>
@@ -76,13 +76,13 @@
             />
           </div>
           {{#each this.selectProject.users as |user|}}
-            {{!-- <div class='flex w-12 h-12 m-1'>
+            <div class='flex w-12 h-12 m-1'>
               <img
                 class='object-cover rounded-3xl'
                 src={{user.image}}
                 alt={{user.username}}
                 title={{user.username}}
-              /></div> --}}
+              /></div>
           {{/each}}
         </div>
       </div>
