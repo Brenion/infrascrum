@@ -1,7 +1,10 @@
 {{page-title 'Id'}}
-<div class='flex h-11/12'>
-  <NavBar @model={{@model}} />
-  <div class='flex-grow'>
+<div class='flex'>
+  <div class='fixed'>
+    <NavBar @model={{@model}} />
+  </div>
+
+  <div class='flex-grow absolute -z-20 left-40'>
     <Pages::Project @model={{@model.project}} />
   </div>
 </div>

@@ -2,7 +2,11 @@
 <Header />
 <div class='flex h-full'>
   {{! <NavBar /> }}
-  <main class='flex-grow h-full'>
+  <main class='w-full absolute top-24'>
     {{outlet}}
   </main>
+  <div class='w-screen fixed top-0 left-0'>
+    <Header />
+  </div>
+
 </div>
