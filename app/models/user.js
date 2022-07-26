@@ -8,5 +8,6 @@ export default class UserModel extends Model {
   @attr('string') password;
   @attr('string') image;
   @belongsTo('role') role;
-  @hasMany('project') projects;
+  @hasMany('project', { inverse: 'admin' }) padmins;
+  @hasMany('project', { inverse: 'users' }) projects;
 }

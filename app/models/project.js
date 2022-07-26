@@ -1,4 +1,4 @@
-import Model, { attr, hasMany } from '@ember-data/model';
+import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
 export default class ProjectModel extends Model {
   @attr('string') projectName;
@@ -6,6 +6,7 @@ export default class ProjectModel extends Model {
   @attr('string') endDate;
   @attr('string') description;
   @attr('string') image;
-  @hasMany('user') users;
+  @belongsTo('user', { inverse: 'padmins' }) admin;
+  @hasMany('user', { inverse: 'projects' }) users;
   @hasMany('element') elements;
 }

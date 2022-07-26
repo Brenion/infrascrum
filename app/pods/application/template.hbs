@@ -1,8 +1,12 @@
 {{page-title 'Application'}}
-<Header />
-<div class='flex h-full'>
+<div class="relative">
+
   {{! <NavBar /> }}
-  <main class='flex-grow h-full'>
-    {{outlet}}
-  </main>
+    <main class=' w-full absolute top-24 z-0'>
+      {{outlet}}
+    </main>
+  <div class=" w-screen fixed top-0 left-0 z-auto">
+  <Header />
+  </div>
+
 </div>
