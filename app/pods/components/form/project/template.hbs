@@ -78,12 +78,6 @@
         </div>
       </div>
       <div class='mt-4 flex justify-end'>
-          <LinkTo
-          @route='projects'
-          type='reset'
-          class='transition duration-200 mx-2 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 ring-inset'
-          >Cancel
-          </LinkTo>
         <button type='submit' class='btnPrimary px-6 mr-4'>
           {{#if @model.id}}
             Save
@@ -91,6 +85,11 @@
             Create
           {{/if}}
         </button>
+        <LinkTo
+          @route='projects'
+          type='reset'
+          class='btnCancel px-6'
+        >Cancel</LinkTo>
       </div>
     </form>
   </div>
