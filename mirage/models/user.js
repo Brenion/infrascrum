@@ -10,4 +10,5 @@ export default Model.extend({
   role: belongsTo('role'),
   padmins: hasMany('project', { inverse: 'admin' }),
   projects: hasMany('project', { inverse: 'users' }),
+  tasks: hasMany('task'),
 });

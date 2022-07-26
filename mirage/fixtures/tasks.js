@@ -9,6 +9,7 @@ export default [
     typeId: 1,
     elementId: 1,
     checklistIds: [1, 2],
+    userIds: [1],
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export default [
     typeId: 2,
     elementId: 1,
     checklistIds: [3],
+    userIds: [1, 2],
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ export default [
     colorTask: '#000000',
     typeId: 1,
     elementId: 2,
+    userIds: [2],
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ export default [
     colorTask: '#000000',
     typeId: 2,
     elementId: 3,
+    userIds: [2],
   },
   {
     id: 5,
@@ -51,6 +55,7 @@ export default [
     typeId: 1,
     elementId: 4,
     checklistIds: [4, 5],
+    userIds: [1, 3, 4],
   },
   {
     id: 6,
@@ -62,5 +67,6 @@ export default [
     typeId: 2,
     elementId: 4,
     checklistIds: [6],
+    userIds: [2, 4],
   },
 ];

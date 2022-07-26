@@ -9,4 +9,5 @@ export default class TaskModel extends Model {
   @belongsTo('type') type;
   @belongsTo('element') element;
   @hasMany('checklist') checklists;
+  @hasMany('user') users;
 }

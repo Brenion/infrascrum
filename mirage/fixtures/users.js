@@ -11,6 +11,7 @@ export default [
     roleId: 1,
     padminsIds: [1],
     projectIds: [2],
+    taskIds: [1, 2, 5],
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export default [
     roleId: 1,
     padminsIds: [2, 3],
     projectIds: [2, 3],
+    taskIds: [2, 3, 4, 6],
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ export default [
     image: 'https://i.unimedias.fr/2022/03/15/istock-165945036.jpg',
     roleId: 1,
     projectIds: [1, 2, 3],
+    taskIds: [5],
   },
   {
     id: 4,
@@ -47,5 +50,6 @@ export default [
       'https://us.123rf.com/450wm/leungchopan/leungchopan1405/leungchopan140500950/28542435-s%C3%A9rieux-asie-b%C3%A9b%C3%A9-sourcil-sourcils.jpg',
     roleId: 1,
     projectIds: [2],
+    taskIds: [5, 6],
   },
 ];
