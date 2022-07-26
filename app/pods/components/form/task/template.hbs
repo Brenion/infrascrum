@@ -27,33 +27,35 @@
                                     placeholder='New Task'
                                     @value={{this.selectTask.nameTask}}
                                     />
-                              <label 
-                                   class='label' 
-                                   for=''>Color</label>
-                        {{!-- template-lint-disable require-input-label --}}
-                              <Input
-                                    class='input'
-                                    @type='color'
-                                    placeholder='color'
-                                    @value={{this.selectTask.colorTask}}
-                                />
-                        
+                        {{!-- template-lint-disable require-input-label --}}    
                                 <div>
-                                    <label for="time">Date Task</label>
-                                    <input 
-                                    type= "date"
-                                    class="input" /> 
+                                     <label 
+                                    class='label mt-4' 
+                                    for='Titre Task'>Date-Task</label>
+                                    <Textarea
+                                    class="input"
+                                    id="date-task"       
+                                    rows="3"
+                                    cols="36"
+                                    
+                                    />
+                                    
                                 </div>
+                                 
+                                
+                                  
                             
                             </div>
                             <div class="w-1/2">
                               <div class="flex justify-around items-center">
                                     <button 
-                                    type="button"for="chek-list">Check-List</button>
+                                    class="font-semibold text-sm text-gray-600 pb-1 block "
+                                    type="button"
+                                    for="chek-list">Check-List</button>
                                     {{!-- template-lint-disable require-input-label --}}
                                     <button
                                     type="button" 
-                                    class="bg-gray-200" for="user-comment">Comments:</button>
+                                    class="label" for="user-comment">Comments:</button>
                                 </div>
                              
                                     <Textarea
@@ -73,7 +75,7 @@
                       
                         <div class="mt-4 flex justify-end">
                             <button 
-                               class=" btnPrimary w-full"     
+                               class=" btnPrimary px-6 mr-4"     
                                type="submit">
                                     <span class="inline-block mr-2">Add Task</span>
                                     <svg 
@@ -87,6 +89,10 @@
                                     </svg>
 
                           </button>
+                          <a
+                          class="btnCancel px-6"
+                          type="reset" 
+                          href="/tasks">Cancel</a>
                           </div>
                         
                  </form>
