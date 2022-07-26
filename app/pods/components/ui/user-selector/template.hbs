@@ -1,10 +1,14 @@
 <div class='flex justify-center items-center'>
-  <label for='username' class='label m-4'>user</label>
-  {{!-- <select name='username' id='username' class='input'>
+  <form action='' {{on 'submit' this.saveUser}}>
+    <label for='username' class='label m-4'>user</label>
+    {{!-- <select name='username' id='username' class='input'>
     {{#each this.utilisateurs as |user|}}
       <option>{{user.username}}</option>
     {{/each}}
   </select> --}}
-  <Input type='text' class='input' @value={{this.utilisateurs}} />
-  {{log this.utilisateurs}}
+    <Input class='input' @value={{this.utilisateurs}} />
+    <button type='submit'>add</button>
+
+  </form>
+
 </div>

@@ -34,7 +34,6 @@ export default [
     password: '123456',
     image: 'https://i.unimedias.fr/2022/03/15/istock-165945036.jpg',
     roleId: 1,
-    padminsIds: [],
     projectIds: [1, 2, 3],
   },
   {
@@ -47,7 +46,6 @@ export default [
     image:
       'https://us.123rf.com/450wm/leungchopan/leungchopan1405/leungchopan140500950/28542435-s%C3%A9rieux-asie-b%C3%A9b%C3%A9-sourcil-sourcils.jpg',
     roleId: 1,
-    padminsIds: [],
     projectIds: [2],
   },
 ];
