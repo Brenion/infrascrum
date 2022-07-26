@@ -10,6 +10,7 @@
 
 <div class='flex'>
   {{#each @model.elements as |element|}}
+  <div class="flex flex-col">
     {{! template-lint-disable no-inline-styles }}
     {{! template-lint-disable style-concatenation }}
 
@@ -190,7 +191,9 @@
         {{/each}}
       </div>
       {{! Cette div sert au flex de mes couille }}
+      </div>
   {{/each}}
+
 </div>
 
 {{yield}}
