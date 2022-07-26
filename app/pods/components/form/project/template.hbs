@@ -64,7 +64,9 @@
       <div
         class='border rounded-lg border-gray-200 flex justify-between items-center'
       >
-        <Ui::UserSelector @project={{@model}} />
+        {{#if @model.id}}
+          <Ui::UserSelector @project={{@model}} />
+        {{/if}}
         <div class='flex m-4'>
 
           <div class='flex w-12 h-12 m-1'>
