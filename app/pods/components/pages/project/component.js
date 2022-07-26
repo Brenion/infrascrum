@@ -1,8 +1,13 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class PagesProjectComponent extends Component {
+  @action deleteTask(task, e) {
+    e.preventDefault();
+    task.destroyRecord();
+  }
+
   @tracked isEditElement = false;
 
   // @tracked selectElement = {};
