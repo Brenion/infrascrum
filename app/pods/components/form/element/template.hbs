@@ -35,7 +35,11 @@
               Save
             </button>
 
-            <button type='button' class='btnCancel px-4'>
+            <button
+              type='button'
+              class='btnCancel px-4'
+              {{on 'click' (fn this.change false)}}
+            >
               Cancel
             </button>
           </div>
