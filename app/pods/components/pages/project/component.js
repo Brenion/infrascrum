@@ -6,12 +6,4 @@ export default class PagesProjectComponent extends Component {
     e.preventDefault();
     task.destroyRecord();
   }
-  @action finishTask(e) {
-    if (e.checked) {
-      e.style.visibility = 'visible';
-      e.value = '';
-    } else {
-      e.style.visibility = 'hidden';
-    }
-  }
 }
