@@ -95,7 +95,7 @@
           </div>
         {{/if}}
 
-        <button type='button' class='pr-2 mr-2 text-red-400'><svg
+        <button type='button' class='pr-2 mr-2 text-red-400' {{on 'click' (fn this.deleteElement element)}}><svg
             xmlns='http://www.w3.org/2000/svg'
             class='h-6 w-6'
             fill='none'
