@@ -1,1 +1,126 @@
-{{yield}}
+<div class="left-0 top-0 flex-justify-center pt-12 w-full h-full">
+    <div class="flex justify-center w-full">
+
+
+<div class="formBackground mt-12 w-2/3">
+      <div class="formContainer">
+               <div>
+                        <img src='../images/logo.png' alt='infrascrum' class='w-12 mx-auto' />
+                </div>
+           <h2 class="text-2xl text-center font-bold text-gray-600 mb-5">Task </h2>
+     </div>
+
+       
+    
+         
+              
+             <div class="form px-5 py-7">
+                    <form {{on 'submit' this.saveTask}}>
+                        <div class="flex">
+                            <div class="mr-4 w-1/2">
+                                
+                               <label 
+                                    class='label' 
+                                    for='user'>User</label>
+                                    <Input
+                                    class='input'
+                                    @type='select'
+                                    placeholder='input select'
+                                    @value={{this.selectTask.nameTask}}
+                                    />
+                               
+                               <label 
+                                    class='label' 
+                                    for='Titre Task'>Task</label>
+                                    <Input
+                                    class='input'
+                                    @type='text'
+                                    placeholder='New Task'
+                                    @value={{this.selectTask.nameTask}}
+                                    />
+                        {{!-- template-lint-disable require-input-label --}}    
+                                <div>
+                                     <label 
+                                    class='label mt-2' 
+                                    for='Titre Task'>Date-Task</label>
+                                    
+                                      <Input
+                                    class='input'
+                                    @type='text'
+                                    placeholder='date Task'
+                                    @value={{this.selectTask.nameTask}}
+                                    />
+                                    
+                                    
+                                </div>
+                                <div class='flex flex-nowrap justify-start'>
+                                {{!-- <label class='label' for=''>color</label> --}}
+                                {{!-- template-lint-disable require-input-label --}}
+                                <Input
+                                    class='rounded-full h-10 w-10'
+                                    @type='color'
+                                    placeholder='color'
+                                    @value={{this.selectElement.colorElement}}
+                                />
+                                </div>
+                                 
+                                
+                                  
+                            
+                            </div>
+                            <div class="w-1/2">
+                              <div class="flex justify-between">
+                                    <button 
+                                    class="btnTask "
+                                    type="button"
+                                    for="chek-list">Check-List</button>
+                                    {{!-- template-lint-disable require-input-label --}}
+                                    <button
+                                    type="button" 
+                                    class="btnTask" for="user-comment">Description</button>
+                                </div>
+                             
+                                    <Textarea
+                                    class="input"
+                                    id="user-comment, check-list"
+                                    @value={{this.userComment}}
+                                    rows="8"
+                                    cols="36"
+                                    />
+
+                            </div>
+                        </div>
+                        {{!-- template-lint-disable require-input-label --}}
+                        
+                    
+                        
+                      
+                        <div class="mt-4 flex justify-end">
+                            <button 
+                               class=" btnPrimary px-6 mr-4"     
+                               type="submit">
+                                    <span class="inline-block mr-2">Add Task</span>
+                                    <svg 
+                                      xmlns="http://www.w3.org/2000/svg" 
+                                      class="h-6 w-6 inline-block" 
+                                      fill="none" 
+                                      viewBox="0 0 24 24" 
+                                      stroke="currentColor" 
+                                      stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+
+                          </button>
+                          <a
+                          class="btnCancel px-6"
+                          type="reset" 
+                          href="/tasks">Cancel</a>
+                          </div>
+                        
+                 </form>
+                </div>  
+   
+
+    </div>
+  </div>
+</div>
