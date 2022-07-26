@@ -10,7 +10,8 @@ module.exports = {
       spacing: {
         128: '32rem',
         160: '40rem',
-        184: '52rem'
+        184: '52rem',
+        256:'104rem'
       },
       colors: {
         'chartreuse': '#7FFF00',
