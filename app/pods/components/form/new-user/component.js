@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class FormNewUserComponent extends Component {
   @service router;
+  @service store;
 
   @tracked
   username = '';
@@ -38,15 +39,12 @@ export default class FormNewUserComponent extends Component {
       return false;
     }
   }
-
   @action
-  addingNewUser(e) {
-    // e.preventDefault;
+  async addingNewUser(e) {
+    e.preventDefault;
     console.log(e);
-    this.args.create({
-      username: this.username,
-      email: this.email,
-      password: this.password,
-    });
+    let newUser = this.store.createRecord('user', e);
+    newUser.save();
+    console.log(newUser);
   }
 }

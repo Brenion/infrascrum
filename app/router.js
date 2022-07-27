@@ -12,12 +12,9 @@ Router.map(function () {
     this.route('id', { path: ':id' }, function () {
       this.route('settings');
       this.route('new-task');
-      this.route('tasks', function () {
-        this.route('id', { path: ':id' }, function () {
-          this.route('comments');
-          this.route('checklists');
-          this.route('new-checklist');
-        });
+      this.route('task', { path: 'task/:id' }, function () {
+        this.route('comments');
+        this.route('checklists');
       });
     });
     this.route('update', { path: 'dashboard/:id' });
