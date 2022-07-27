@@ -9,10 +9,10 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('projects', function () {
     this.route('newproject');
-    this.route('id', { path: ':id' }, function () {
+    this.route('id', { path: '/:id' }, function () {
       this.route('settings');
       this.route('new-task');
-      this.route('task', { path: 'task/:id' }, function () {
+      this.route('task', { path: '/:id' }, function () {
         this.route('comments');
         this.route('checklists');
       });

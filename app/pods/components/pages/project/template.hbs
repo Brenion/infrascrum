@@ -118,12 +118,13 @@
             </svg></button>
         </div>
         <div class='flex flex-col mx-4'>
-          
+
           {{#each element.tasks as |task|}}
             {{log task.id}}
             <LinkTo
+              {{!-- {{on 'click' this.taskEdit}} --}}
               @route='projects.id.task'
-              @models={{array task.element task}}
+              @model={{task}}
               class='mb-4 shadow-xl rounded-md w-80 ml-2 text-sm'
             >
               <div
@@ -201,10 +202,8 @@
 
           {{/each}}
         </div>
-        {{! Cette div sert au flex de mes couille }}
       </div>
 
-      {{! Cette div sert au flex de mes couille }}
     </div>
   {{/each}}
 

@@ -11,11 +11,22 @@ export default class FormTaskComponent extends Component {
 
   constructor(owner, args) {
     super(owner, args);
-
-    this.selectProject = {
-      id: this.args.model.project.get('id'),
-      elements: this.args.model.project.get('elements'),
-    };
+    console.log(this.args.model);
+    if (this.args.model != null) {
+      console.log('if');
+      this.selectTask = {
+        id: this.args.model.id,
+        title: this.args.model.title,
+        time: this.args.model.time,
+        colorTask: this.args.model.colorTask,
+        description: this.args.model.description,
+        type: this.args.model.type,
+        element: this.args.model.element,
+        users: this.args.model.users,
+        checklists: this.args.model.checklist,
+      };
+      console.log(this.selectTask.id);
+    }
   }
   @action async saveTask(e) {
     e.preventDefault();
@@ -29,10 +40,8 @@ export default class FormTaskComponent extends Component {
       element: setOnElement,
       colorTask: this.selectTask.colorTask,
       description: this.selectTask.description,
-      // project: setOnProject,
     });
     await rec.save();
     this.router.transitionTo('projects.id');
-    // console.log(this.selectProject.elements);
   }
 }
