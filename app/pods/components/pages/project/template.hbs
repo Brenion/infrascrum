@@ -121,7 +121,7 @@
           {{#each element.tasks as |task|}}
             {{log task.id}}
             <LinkTo
-              @route='projects.id.task'
+              @route='task'
               @models={{array task.element task}}
               class='mb-4 shadow-xl rounded-md w-80 ml-2 text-sm'
             >
