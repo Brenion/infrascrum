@@ -8,38 +8,53 @@
         </div>
         <h2 class='text-2xl text-center font-bold text-gray-600 mb-5'>Task </h2>
       </div>
-
       <div class='form px-5 py-7'>
         <form {{on 'submit' this.saveTask}}>
           <div class='flex'>
             <div class='mr-4 w-1/2'>
 
-              <label class='label' for='user'>User</label>
-              <Input
-                class='input'
-                @type='select'
-                placeholder='input select'
-                @value={{this.selectTask.nameTask}}
-              />
+              <div>
 
-              <label class='label' for='Titre Task'>Task</label>
-              <Input
-                class='input'
-                @type='text'
-                placeholder='New Task'
-                @value={{this.selectTask.nameTask}}
-              />
+                <label class='label' for='Titre Task'>Task</label>
+                {{! template-lint-disable require-input-label }}
+                <Input
+                  class='input'
+                  @type='text'
+                  placeholder='New Task'
+                  @value={{this.selectTask.title}}
+                />
+              </div>
+              <div>
+
+                <label class='label' for='user'>User</label>
+                {{! template-lint-disable require-input-label }}
+                <Input
+                  class='input'
+                  @type='select'
+                  placeholder='input select'
+                  @value={{this.selectTask.users}}
+                />
+              </div>
               {{! template-lint-disable require-input-label }}
               <div>
                 <label class='label mt-2' for='Titre Task'>Date-Task</label>
 
                 <Input
                   class='input'
-                  @type='text'
+                  @type='date'
                   placeholder='date Task'
-                  @value={{this.selectTask.nameTask}}
+                  @value={{this.selectTask.time}}
                 />
-
+              </div>
+              {{! template-lint-disable require-input-label }}
+              <div>
+                <label class='label mt-2' for='Titre Task'>Element task</label>
+                <Input
+                  class='input'
+                  @type='select'
+                  placeholder='Element'
+                  @value={{this.selectTask.element}}
+                />
               </div>
               <div class='flex flex-nowrap justify-start'>
                 {{! <label class='label' for=''>color</label> }}
@@ -48,34 +63,22 @@
                   class='rounded-full h-10 w-10'
                   @type='color'
                   placeholder='color'
-                  @value={{this.selectElement.colorElement}}
+                  @value={{this.selectTask.colorTask}}
                 />
               </div>
 
             </div>
             <div class='w-1/2'>
-              <div class='flex justify-between'>
-                <button
-                  class='btnTask'
-                  type='button'
-                  for='chek-list'
-                >Check-List</button>
+              <div class='flex flex-col justify-between'>
                 {{! template-lint-disable require-input-label }}
-                <button
-                  type='button'
-                  class='btnTask'
-                  for='user-comment'
-                >Description</button>
+                <label for='' class='label'>Description</label>
+                <Input
+                  @type='text'
+                  class='input'
+                  placeholder='description'
+                  @value={{this.selectTask.description}}
+                />
               </div>
-
-              <Textarea
-                class='input'
-                id='user-comment, check-list'
-                @value={{this.userComment}}
-                rows='8'
-                cols='36'
-              />
-
             </div>
           </div>
           {{! template-lint-disable require-input-label }}
@@ -99,7 +102,9 @@
               </svg>
 
             </button>
-            <a class='btnCancel px-6' type='reset' href='/tasks'>Cancel</a>
+            <LinkTo @route='projects.id' class='btnCancel p-4'>
+              Annuler
+            </LinkTo>
           </div>
 
         </form>
