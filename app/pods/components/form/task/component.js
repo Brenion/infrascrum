@@ -32,7 +32,7 @@ export default class FormTaskComponent extends Component {
       // project: setOnProject,
     });
     await rec.save();
-
+    this.router.transitionTo('projects.id');
     // console.log(this.selectProject.elements);
   }
 }
