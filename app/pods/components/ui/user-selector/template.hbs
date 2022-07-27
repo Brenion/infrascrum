@@ -3,7 +3,8 @@
   {{on 'submit' this.saveUser}}
   class='flex justify-center items-center'
 >
-  <label for='username' class='label m-4'>user</label>
+  <label for='username' class='label m-4'>User</label>
+  {{!-- template-lint-disable require-input-label --}}
   <Input
     class='border rounded-lg px-3 py-2 mr-3 text-sm w-full'
     @value={{this.utilisateurs}}
