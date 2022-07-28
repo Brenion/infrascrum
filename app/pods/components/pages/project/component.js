@@ -19,7 +19,7 @@ export default class PagesProjectComponent extends Component {
 
   @action editElement() {
     this.isEditElement = !this.isEditElement;
-    console.log(this.isEditElement);
+    // console.log(this.isEditElement);
   }
   @action deleteElement(element, e) {
     e.preventDefault();

@@ -22,7 +22,7 @@ export default [
   },
   {
     id: 4,
-    nameElement: 'Todo',
+    nameElement: 'ToLoup',
     colorElement: '#4287f5',
     projectId: 2,
     taskIds: [5, 6],
