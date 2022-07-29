@@ -7,8 +7,8 @@ export default class ApplicationAdapter extends RestAdapter {
 
   get headers() {
     const headers = {
-      Accept: 'application/vnd.api+json',
-      'Content-Type': 'application/vnd.api+json',
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
       Authorization: '',
     };
     if (this.session.isAuthenticated) {

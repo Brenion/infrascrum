@@ -7,7 +7,7 @@ export default class FormNewUserComponent extends Component {
   @service router;
   @service store;
 
-  @tracked selectUser = { username: '', email: '', password: '', confirm: '' };
+  @tracked selectUser = { username: '', email: '', password: '' };
 
   @tracked
   username = '';
@@ -21,21 +21,21 @@ export default class FormNewUserComponent extends Component {
   constructor(owner, args) {
     super(owner, args);
 
-    if (this.args.model != null) {
-      this.selectUser = {
-        username: this.args.model.username,
-        email: this.args.model.email,
-        password: this.args.model.password,
-      };
-    }
+    // if (this.args.model != null) {
+    //   this.selectUser = {
+    //     username: this.args.model.username,
+    //     email: this.args.model.email,
+    //     password: this.args.model.password,
+    //   };
+    // }
   }
   @action
   async addNewUser(e) {
     e.preventDefault();
     console.log(this.selectUser);
     let newUser = await this.store.createRecord('user', this.selectUser);
-    console.log(newUser);
     await newUser.save();
+    console.log(newUser);
   }
 
   // get isAddButtonDisabled() {
