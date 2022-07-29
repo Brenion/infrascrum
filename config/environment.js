@@ -11,6 +11,7 @@ module.exports = function (environment) {
     'ember-cli-mirage': {
       enabled: false,
     },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -26,6 +27,10 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+  };
+  ENV['ember-simple-auth-token'] = {
+    refreshAccessTokens: true,
+    refreshLeeway: 300, // refresh 5 minutes (300 seconds) before expiration
   };
 
   if (environment === 'development') {
