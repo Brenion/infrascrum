@@ -15,6 +15,7 @@ Router.map(function () {
       this.route('task', { path: '/:id' }, function () {
         this.route('comments');
         this.route('checklists');
+        this.route('description');
       });
     });
     this.route('update', { path: 'dashboard/:id' });

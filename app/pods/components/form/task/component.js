@@ -4,14 +4,26 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class FormTaskComponent extends Component {
+  @service project;
   @service router;
   @service store;
+  @service user;
+  @tracked addUsers;
   @tracked selectTask = {};
   @tracked selectElement = {};
   @tracked ids;
+  @tracked selectProject = {};
+  @tracked record = {};
+  @tracked isTitle = false;
+  @tracked isUser = false;
+  @tracked isTime = false;
+  @tracked names = [];
+  @tracked selectedUser = [];
+
   constructor(owner, args) {
     super(owner, args);
-    if (this.args.model.id != undefined) {
+    console.log(this.users);
+    if (this.args.model.id != null) {
       console.log('if');
       this.selectTask = {
         id: this.args.model.id,
@@ -54,5 +66,16 @@ export default class FormTaskComponent extends Component {
       await rec.save();
       this.router.transitionTo('projects.id');
     }
+  }
+
+  // action sur bouton
+  @action titled() {
+    this.isTitle = !this.isTitle;
+  }
+  @action usered() {
+    this.isUser = !this.isUser;
+  }
+  @action timed() {
+    this.isTime = !this.isTime;
   }
 }
