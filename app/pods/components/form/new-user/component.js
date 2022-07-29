@@ -7,6 +7,8 @@ export default class FormNewUserComponent extends Component {
   @service router;
   @service store;
 
+  @tracked selectUser = { username: '', email: '', password: '', confirm: '' };
+
   @tracked
   username = '';
   @tracked
@@ -16,35 +18,47 @@ export default class FormNewUserComponent extends Component {
   @tracked
   confirm = '';
 
-  get isAddButtonDisabled() {
-    return (
-      this.username === '' ||
-      this.email === '' ||
-      this.password === '' ||
-      this.confirm === ''
-    );
-  }
-  get confirmSame() {
-    if (this.password === this.confirm) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  constructor(owner, args) {
+    super(owner, args);
 
-  get minimumChar() {
-    if (this.password.length < 5) {
-      return true;
-    } else {
-      return false;
+    if (this.args.model != null) {
+      this.selectUser = {
+        username: this.args.model.username,
+        email: this.args.model.email,
+        password: this.args.model.password,
+      };
     }
   }
   @action
-  async addingNewUser(e) {
-    e.preventDefault;
-    console.log(e);
-    let newUser = this.store.createRecord('user', e);
-    newUser.save();
+  async addNewUser(e) {
+    e.preventDefault();
+    console.log(this.selectUser);
+    let newUser = await this.store.createRecord('user', this.selectUser);
     console.log(newUser);
+    await newUser.save();
   }
+
+  // get isAddButtonDisabled() {
+  //   return (
+  //     this.selectUser.username === '' ||
+  //     this.selectUser.email === '' ||
+  //     this.selectUser.password === '' ||
+  //     this.selectUser.confirm === ''
+  //   );
+  // }
+  // get confirmSame() {
+  //   if (this.selectUser.password === this.selectUser.confirm) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
+
+  // get minimumChar() {
+  //   if (this.selectUser.password.length < 5) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

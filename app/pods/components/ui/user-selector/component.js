@@ -22,7 +22,7 @@ export default class UiUserSelectorComponent extends Component {
 
     this.addedUser = this.user.users;
     this.error = 'User does not exist';
-    this.errorExist = 'User exist on project';
+    this.errorExist = 'User already exists on project';
   }
 
   @action async saveUser(e) {
