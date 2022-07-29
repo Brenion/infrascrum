@@ -1,13 +1,12 @@
 import Service from '@ember/service';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-
-export default class ProjectService extends Service {
+export default class TaskService extends Service {
   @service store;
-  @tracked projects = {};
+  @tracked users = {};
 
   async model() {
-    let projects = await this.store.findAll('project');
-    this.projects = projects;
+    let tasks = await this.store.findAll('task');
+    this.users = tasks;
   }
 }

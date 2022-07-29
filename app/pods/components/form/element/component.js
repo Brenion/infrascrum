@@ -16,6 +16,7 @@ export default class FormElementComponent extends Component {
     this.selectProject = {
       id: this.args.model.project.get('id'),
     };
+    console.log(this.args.model.project);
   }
   @action async saveElement(e) {
     e.preventDefault();

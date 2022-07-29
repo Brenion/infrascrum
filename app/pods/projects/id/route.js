@@ -6,6 +6,7 @@ export default class ProjectsIdRoute extends Route {
   model(params) {
     let project = this.store.findRecord('project', params.id);
     let element = this.store.findAll('element');
-    return { project: project, element: element };
+    let task = this.store.findAll('task');
+    return { project: project, element: element, task: task };
   }
 }

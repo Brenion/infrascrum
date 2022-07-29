@@ -1,1 +1,42 @@
-{{yield}}
+<div class='formBackground'>
+  <div class='formContainer'>
+    <div>
+      <img src='/images/logo.png' alt='infrascrum' class='w-12 mx-auto' />
+    </div>
+    <h1 class='font-bold text-center text-3xl mb-5 mt-2'>
+      Checklist
+    </h1>
+
+    <div class='form'>
+      <form class='px-5 py-7' {{!-- {{on 'submit' this.saveChecklist}} --}}>
+        <Input
+          class='input'
+          @type='text'
+          placeholder='title'
+          @value={{this.selectChecklist.title}}
+        />
+
+        <div class='py-5'>
+          <div class='flex items-center justify-between'>
+            <button
+              class='btnPrimary px-6 mr-4'
+              type='submit'
+              {{!-- disabled={{this.isAddButtonDisabled}} --}}
+            >
+              Save
+            </button>
+
+            <button
+              type='button'
+              class='btnCancel px-4'
+              {{!-- {{on 'click' (fn this.closePopup false)}} --}}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
