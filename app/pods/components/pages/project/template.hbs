@@ -118,9 +118,14 @@
             </svg></button>
         </div>
         <div class='flex flex-col mx-4'>
-          {{#each element.tasks as |task|}}
 
-            <div class='mb-4 shadow-xl rounded-md w-80 ml-2 text-sm'>
+          {{#each element.tasks as |task|}}
+            <LinkTo
+              {{!-- {{on 'click' this.taskEdit}} --}}
+              @route='projects.id.task'
+              @model={{task}}
+              class='mb-4 shadow-xl rounded-md w-80 ml-2 text-sm'
+            >
               <div
                 class='flex justify-between items-center border-b rounded-l-xl'
               >
@@ -192,14 +197,12 @@
                   <input type='checkbox' class='mr-4' />
                 </div>
               </div>
-            </div>
+            </LinkTo>
 
           {{/each}}
         </div>
-        {{! Cette div sert au flex de mes couille }}
       </div>
 
-      {{! Cette div sert au flex de mes couille }}
     </div>
   {{/each}}
 
