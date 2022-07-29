@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default class ApplicationAdapter extends RestAdapter {
   @service session;
-  host = 'http://localhost:8080';
+  host = 'http://localhost:8000';
 
   get headers() {
     const headers = {
