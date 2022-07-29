@@ -4,13 +4,13 @@ module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'infrascrum',
     podModulePrefix: 'infrascrum/pods',
-    apiPath: 'http://localhost:8000',
+    apiPath: 'http://localhost:8080',
     environment,
     rootURL: '/',
     locationType: 'history',
-    'ember-cli-mirage': {
-      enabled: false,
-    },
+    // 'ember-cli-mirage': {
+    //   enabled: false,
+    // },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
