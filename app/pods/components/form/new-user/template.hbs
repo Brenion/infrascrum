@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class='form'>
-        <form class='px-5 py-7' {{on 'submit' this.addingNewUser}}>
+        <form class='px-5 py-7' {{on 'submit' this.addNewUser}}>
           <label class='label'>
             Username
           </label>
@@ -31,7 +31,8 @@
           <Input
             @type='text'
             class='input'
-            @value={{this.username}}
+            id="username"
+            @value={{this.selectUser.username}}
             placeholder="Enter your username"
           />
           <label class='label'>
@@ -41,7 +42,8 @@
           <Input
             @type='email'
             class='input'
-            @value={{this.email}}
+            id="email"
+            @value={{this.selectUser.email}}
             placeholder="example@mail.com"
           />
           <label class='label'>
@@ -50,7 +52,8 @@
           <Input
             @type='password'
             class='input'
-            @value={{this.password}}
+            id="password"
+            @value={{this.selectUser.password}}
             placeholder="Password must contain at least 5 characters"
           />
           {{#if this.minimumChar}}
@@ -62,7 +65,8 @@
           <Input
             @type='password'
             class='input'
-            @value={{this.confirm}}
+            id="confirm"
+            @value={{this.selectUser.confirm}}
             placeholder="Please verify your password"
           />
           {{#if this.confirmSame}}
@@ -72,7 +76,7 @@
         {{!-- {{log this.isAddButtonDisabled}} --}}
           <button
             type='submit'
-            class='btnPrimary w-2/3'
+            class='btnPrimary w-2/3 disabled:cursor-not-allowed'
             disabled={{this.isAddButtonDisabled}}
             {{!-- {{on 'click' this.addingNewUser}} --}}
           >

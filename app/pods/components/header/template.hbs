@@ -6,13 +6,14 @@
       <img
       src='/images/logo-text.png'
       alt='infrascrum'
-      width='250px'
-      class='mx-8 p-4'
+      {{!-- width='250px'
+      height="200px" --}}
+      class='mx-8 p-4 w-36 md:40 lg:w-60'
       />
     </LinkTo>
 
     <button
-      class='px-4 mb-4 mr-2 transition duration-200 cursor-pointer font-normal rounded hover:bg-gray-100 focus:outline-none focus:bg-gray-200'
+      class='px-4 mb-5 mr-2 transition duration-200 cursor-pointer font-normal rounded hover:bg-gray-100 focus:outline-none focus:bg-gray-200'
       type='button'
       {{on 'click' this.visibleFeature}}
     >Features 
@@ -26,7 +27,7 @@
 
     {{/if}}
     {{#if this.session.isAuthenticated}}
-      <LinkTo @route='projects' class="mb-4 px-4 transition duration-200 cursor-pointer font-normal rounded hover:bg-gray-100 focus:outline-none focus:bg-gray-200"> Projects</LinkTo>
+      <LinkTo @route='projects' class="mb-5 px-4 transition duration-200 cursor-pointer font-normal rounded hover:bg-gray-100 focus:outline-none focus:bg-gray-200"> Projects</LinkTo>
     {{/if}}
 
 

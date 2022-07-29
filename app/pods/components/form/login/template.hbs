@@ -33,7 +33,7 @@
 
         <button
           type='button'
-          class='btnPrimary w-full'
+          class='btnPrimary w-full disabled:cursor-not-allowed'
           {{on 'click' (fn @authenticate this.username this.password)}}
           disabled={{this.isAddButtonDisabled}}
         >
