@@ -1,3 +1,3 @@
-import JSONAPISerializer from '@ember-data/serializer/rest';
+import JSONAPISerializer from '@ember-data/serializer/json';
 
 export default class ApplicationSerializer extends JSONAPISerializer {}
