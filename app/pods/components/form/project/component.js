@@ -35,6 +35,7 @@ export default class FormProjectComponent extends Component {
       this.router.transitionTo('projects');
     } else {
       const rec = await this.store.createRecord('project', this.selectProject);
+      console.log(rec);
       await rec.save();
       this.router.transitionTo('projects');
     }
