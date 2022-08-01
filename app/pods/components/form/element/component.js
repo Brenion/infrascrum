@@ -32,7 +32,7 @@ export default class FormElementComponent extends Component {
     });
     await rec.save();
     this.visible.isVisibleElement = false;
-    console.log(this.visible.isVisibleElement);
+    console.log(rec);
   }
   @action change() {
     this.visible.visibleElement();
