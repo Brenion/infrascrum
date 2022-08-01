@@ -25,7 +25,7 @@ export default class LoginLoginController extends Controller {
 
     if (this.session.isAuthenticated) {
       console.log('TEST');
-      this.router.transitionTo('projects');
+      this.router.transitionTo('index');
     }
   }
 }

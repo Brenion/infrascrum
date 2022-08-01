@@ -7,11 +7,13 @@ export default class FormProjectComponent extends Component {
   @service router;
   @service store;
   @tracked selectProject = {};
+  @tracked project;
+  @tracked admin;
 
   constructor(owner, args) {
     super(owner, args);
 
-    if (this.args.model != null) {
+    if (this.args.model.projectId != null) {
       console.log('if');
       this.selectProject = {
         id: this.args.model.id,
@@ -24,17 +26,27 @@ export default class FormProjectComponent extends Component {
         admin: this.args.model.admin,
         users: this.args.model.users,
       };
+    } else {
+      this.admin = this.args.model.query.userId;
     }
   }
   @action async saveProject(e) {
     e.preventDefault();
-    if (this.selectProject.id != null) {
+    if (this.args.model.projectId != null) {
       const rec = await this.store.findRecord('project', this.selectProject.id);
       rec.setProperties(this.selectProject);
       await rec.save();
       this.router.transitionTo('projects');
     } else {
-      const rec = await this.store.createRecord('project', this.selectProject);
+      const setOnUser = await this.store.findRecord('user', this.admin);
+      const rec = await this.store.createRecord('project', {
+        projectName: this.selectProject.projectName,
+        startDate: this.selectProject.startDate,
+        endDate: this.selectProject.endDate,
+        description: this.selectProject.description,
+        image: this.selectProject.image,
+        admin: setOnUser,
+      });
       console.log(rec);
       await rec.save();
       this.router.transitionTo('projects');
