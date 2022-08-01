@@ -22,9 +22,8 @@ export default class FormTaskComponent extends Component {
 
   constructor(owner, args) {
     super(owner, args);
-    console.log(this.users);
+
     if (this.args.model.id != null) {
-      console.log('if');
       this.selectTask = {
         id: this.args.model.id,
         title: this.args.model.title,
@@ -36,6 +35,25 @@ export default class FormTaskComponent extends Component {
         users: this.args.model.users,
         checklists: this.args.model.checklist,
       };
+    } else {
+    }
+    this.addUsers = this.user.users;
+    this.addUsers.forEach((element) => {
+      this.names.push(element.username);
+    });
+  }
+  model(params) {
+    let task = this.store.findRecord('task', params.task_id, {
+      checklist: 'checklist',
+    });
+
+    return task;
+  }
+  checkLength(text, select /*, event */) {
+    if (select.searchText.length >= 3 && text.length < 3) {
+      return '';
+    } else {
+      return text.length >= 3;
     }
   }
   @action async saveTask(e) {
