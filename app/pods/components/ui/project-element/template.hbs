@@ -11,7 +11,7 @@
   {{#if this.isEditElement}}
     <div class="flex items-center justify-between">
       <form
-        class="p-2"
+        class="py-2"
         action=""
         {{on 'submit' (fn this.saveElement @element)}}
       >
@@ -28,7 +28,7 @@
             @type="text"
             @value={{@element.nameElement}}
           />
-          <button type="submit" class="px-2 text-green-500">
+          <button type="submit" class="pl-8 text-green-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -50,7 +50,7 @@
   {{else}}
     <div class="flex items-center justify-between">
       <div
-        class="w-20 h-10 rounded-l-xl mr-12"
+        class="w-20 h-12 rounded-l-xl mr-12"
         style="background-color:{{@element.colorElement}}"
       ></div>
       <p class="mr-20 w-10">
@@ -80,7 +80,7 @@
   {{/if}}
   <button
     type="button"
-    class="pr-2 mr-2 text-red-400"
+    class="mr-2 text-red-400"
     {{on 'click' (fn this.deleteElement @element)}}
   >
     <svg
