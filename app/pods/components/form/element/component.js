@@ -4,15 +4,19 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class FormElementComponent extends Component {
+  @service visible;
+
   @service router;
   @service store;
   @tracked selectElement = {};
   @tracked selectProject = {};
+  @tracked isVisibleElement;
   constructor(owner, args) {
     super(owner, args);
     this.selectProject = {
       id: this.args.model.project.get('id'),
     };
+    console.log(this.args.model.project);
   }
   @action async saveElement(e) {
     e.preventDefault();
@@ -27,6 +31,10 @@ export default class FormElementComponent extends Component {
       project: setOnProject,
     });
     await rec.save();
-    //this.router.transitionTo(`${this.selectProject.id}`);
+    this.visible.isVisibleElement = false;
+    console.log(this.visible.isVisibleElement);
+  }
+  @action change() {
+    this.visible.visibleElement();
   }
 }

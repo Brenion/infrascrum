@@ -10,4 +10,5 @@ export default class UserModel extends Model {
   @belongsTo('role') role;
   @hasMany('project', { inverse: 'admin' }) padmins;
   @hasMany('project', { inverse: 'users' }) projects;
+  @hasMany('task') tasks;
 }

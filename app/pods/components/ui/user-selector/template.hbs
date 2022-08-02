@@ -1,11 +1,23 @@
-<div class='flex justify-center items-center'>
-  <label for='username' class='label m-4'>user</label>
-  <select name='username' id='username' class='input'>
-    {{log this.utilisateurs}}
-    {{#each this.utilisateurs as |user|}}
-      <option>{{user.username}}</option>
-    {{/each}}
+<form
+  action=''
+  {{on 'submit' this.saveUser}}
+  class='flex justify-center items-center'
+>
+  <label for='username' class='label m-4'>User</label>
+  {{!-- template-lint-disable require-input-label --}}
+  <Input
+    class='border rounded-lg px-3 py-2 mr-3 text-sm w-full'
+    @value={{this.utilisateurs}}
+  />
+  <button
+    type='submit'
+    class='transition duration-200 bg-middleblue hover:bg-nightblue text-white rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center disabled:bg-lightblue py-2 px-4'
+  >Add</button>
 
-  </select>
-
-</div>
+</form>
+{{#if this.isUser}}
+  <div class='text-sm text-red-600'>{{this.error}}</div>
+{{/if}}
+{{#if this.isUserTrue}}
+  <div class='text-sm text-red-600'>{{this.errorExist}}</div>
+{{/if}}

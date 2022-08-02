@@ -1,0 +1,101 @@
+<div
+  class="m-6 rounded-xl flex items-center w-80 justify-between"
+  style="--tw-shadow: 0 1px 6px -1px
+    {{@element.colorElement}}
+     , 0 1px 4px -2px
+    {{@element.colorElement}}
+     ;
+          --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+          box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);"
+>
+  {{#if this.isEditElement}}
+    <div class="flex items-center justify-between">
+      <form
+        class="p-2"
+        action=""
+        {{on 'submit' (fn this.saveElement @element)}}
+      >
+        <div class="flex flex-nowrap justify-around items-center">
+          {{! template-lint-disable require-input-label }}
+          <Input
+            class="border-1 h-6 rounded-lg mx-4 cursor-pointer"
+            @type="color"
+            placeholder="color"
+            @value={{@element.colorElement}}
+          />
+          <Input
+            class="border rounded-lg px-1 py-1 text-sm w-full mr-2"
+            @type="text"
+            @value={{@element.nameElement}}
+          />
+          <button type="submit" class="px-2 text-green-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  {{else}}
+    <div class="flex items-center justify-between">
+      <div
+        class="w-20 h-10 rounded-l-xl mr-12"
+        style="background-color:{{@element.colorElement}}"
+      ></div>
+      <p class="mr-20 w-10">
+        {{@element.nameElement}}
+      </p>
+      <button
+        type="button"
+        class="px-2 text-middleblue"
+        {{on 'click' this.editElement}}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  {{/if}}
+  <button
+    type="button"
+    class="pr-2 mr-2 text-red-400"
+    {{on 'click' (fn this.deleteElement @element)}}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+      ></path>
+    </svg>
+  </button>
+</div>

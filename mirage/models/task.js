@@ -9,4 +9,5 @@ export default Model.extend({
   type: belongsTo('type'),
   element: belongsTo('element'),
   checklists: hasMany('checklist'),
+  users: hasMany('user'),
 });

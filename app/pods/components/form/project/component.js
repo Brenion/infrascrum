@@ -21,21 +21,19 @@ export default class FormProjectComponent extends Component {
         description: this.args.model.description,
         image: this.args.model.image,
         elements: this.args.model.elements,
+        admin: this.args.model.admin,
         users: this.args.model.users,
       };
     }
   }
   @action async saveProject(e) {
-    console.log(this.selectProject);
     e.preventDefault();
     if (this.selectProject.id != null) {
-      console.log('if');
       const rec = await this.store.findRecord('project', this.selectProject.id);
       rec.setProperties(this.selectProject);
       await rec.save();
       this.router.transitionTo('projects');
     } else {
-      console.log(this.selectProject);
       const rec = await this.store.createRecord('project', this.selectProject);
       await rec.save();
       this.router.transitionTo('projects');

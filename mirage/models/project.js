@@ -6,7 +6,7 @@ export default Model.extend({
   endDate: attr,
   description: attr,
   image: attr,
-  admin: belongsTo('user'),
-  users: hasMany('user'),
+  admin: belongsTo('user', { inverse: 'padmins' }),
+  users: hasMany('user', { inverse: 'projects' }),
   elements: hasMany('element'),
 });
