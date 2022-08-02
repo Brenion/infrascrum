@@ -9,14 +9,14 @@ export default class FormNewUserComponent extends Component {
 
   @tracked selectUser = { username: '', email: '', password: '', confirm: '' };
 
-  @tracked
-  username = '';
-  @tracked
-  email = '';
-  @tracked
-  password = '';
-  @tracked
-  confirm = '';
+  // @tracked
+  // username = '';
+  // @tracked
+  // email = '';
+  // @tracked
+  // password = '';
+  // @tracked
+  // confirm = '';
 
   constructor(owner, args) {
     super(owner, args);
@@ -40,10 +40,10 @@ export default class FormNewUserComponent extends Component {
 
   // get isAddButtonDisabled() {
   //   return (
-  //     this.selectUser.username === '' ||
-  //     this.selectUser.email === '' ||
-  //     this.selectUser.password === '' ||
-  //     this.selectUser.confirm === ''
+  //     this.selectUser.username.value === '' ||
+  //     this.selectUser.email.value === '' ||
+  //     this.selectUser.password.value === '' ||
+  //     this.selectUser.confirm.value === ''
   //   );
   // }
   // get confirmSame() {

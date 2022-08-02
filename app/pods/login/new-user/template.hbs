@@ -1,2 +1,5 @@
-{{page-title "NewUser"}}
-<Form::NewUser @create={{this.addingNewUser}}/>
+{{page-title 'NewUser'}}
+<Form::NewUser
+  @create={{this.addNewUser}}
+  @validate="{{this.isAddButtonDisabled}}"
+/>
