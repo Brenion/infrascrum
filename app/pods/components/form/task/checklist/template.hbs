@@ -1,6 +1,6 @@
-<div><h1>checklist</h1></div>
-
-{{#each @selectTask.checklist as |checklist|}}
-  {{log checklist.title}}
+{{#each @model as |checklist|}}
+  <div>
+    {{checklist.title}}
+  </div>
 {{/each}}
 {{yield}}

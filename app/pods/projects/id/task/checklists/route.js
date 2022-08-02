@@ -3,10 +3,8 @@ import { service } from '@ember/service';
 
 export default class ProjectsIdTaskChecklistsRoute extends Route {
   @service store;
-  model() {
-    let checklist = this.store.findAll('checklist', {
-      include: 'task',
-    });
+  async model() {
+    let checklist = await this.store.findAll('checklist');
 
     return checklist;
   }

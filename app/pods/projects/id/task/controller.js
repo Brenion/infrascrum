@@ -4,16 +4,17 @@ import { tracked } from '@glimmer/tracking';
 
 export default class ProjectsIdTaskController extends Controller {
   @service store;
-  @tracked projectId;
-  @tracked project = {};
+  @tracked ckecklists = null;
+  @tracked model;
 
-  get usersId() {
-    let project = this.model.project;
-    let projectId = [];
-    project.forEach((element) => {
-      projectId.push(element.id);
-    });
-    console.log('userId');
-    return console.log(projectId);
+  queryParams = ['checklists'];
+  get taskId() {
+    let checklists = this.checklists;
+    let task = this.model;
+    if (checklists) {
+      return task.filterBy('checklists', checklists);
+    } else {
+      return task;
+    }
   }
 }

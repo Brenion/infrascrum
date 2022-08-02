@@ -22,7 +22,8 @@ export default class FormTaskComponent extends Component {
 
   constructor(owner, args) {
     super(owner, args);
-
+    console.log('dans task');
+    console.log(this.args.model.id);
     if (this.args.model.id != null) {
       this.selectTask = {
         id: this.args.model.id,
