@@ -12,24 +12,25 @@ export default class PagesProjectComponent extends Component {
     task.destroyRecord();
   }
 
-  @tracked isEditElement = false;
+  // @tracked isEditElement = false;
 
-  // @tracked selectElement = {};
-  // @tracked selectProject = {};
+  // // @tracked selectElement = {};
+  // // @tracked selectProject = {};
 
-  @action editElement() {
-    this.isEditElement = !this.isEditElement;
-    console.log(this.isEditElement);
-  }
-  @action deleteElement(element, e) {
-    e.preventDefault();
-    element.destroyRecord();
-  }
-  @action
-  taskEdit() {
-    const taskId = this.task.id;
-    console.log(taskId);
-  }
+  // @action editElement() {
+  //   this.isEditElement = !this.isEditElement;
+  // }
+
+  // @action deleteElement(element, e) {
+  //   e.preventDefault();
+  //   element.destroyRecord();
+  // }
+  // @action
+  // taskEdit() {
+  //   const taskId = this.task.id;
+  //   console.log(taskId);
+  // }
+
   // @action async saveElement(e) {
   //   e.preventDefault();
 
