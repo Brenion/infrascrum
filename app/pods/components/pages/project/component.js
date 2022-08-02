@@ -12,7 +12,7 @@ export default class PagesProjectComponent extends Component {
     task.destroyRecord();
   }
 
-  @tracked isEditElement = false;
+  // @tracked isEditElement = false;
 
   @action editElement() {
     this.isEditElement = !this.isEditElement;

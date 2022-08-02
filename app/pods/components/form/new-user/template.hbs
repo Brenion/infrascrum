@@ -2,12 +2,9 @@
 <div
   class='w-3/4 flex bg-gray-100 border-gray-300 border-2 justify-center p-4 rounded-md items-center'
 >
-  <div><img
-      src='../images/office01.jpg'
-      alt='office fun'
-      class='w-[1000px]'
-    /></div>
-
+  <div>
+    <img src='../images/office01.jpg' alt='office fun' class='w-[1000px]' />
+  </div>
   <div class='bg-gray-100 flex flex-col justify-center items-center sm:py-12'>
     <div class='pl-10 xs:p-0 mx-auto md:w-full md:max-w-md justify-center'>
       <div>
@@ -24,7 +21,7 @@
       </div>
       <div class='form'>
         <form class='px-5 py-7' {{on 'submit' this.addNewUser}}>
-          <label class='label'>
+          <label for='username' class='label'>
             Username
           </label>
           {{! template-lint-disable require-input-label }}
@@ -57,29 +54,31 @@
             placeholder='Password must contain at least 5 characters'
           />
           {{#if this.minimumChar}}
-            <p class='errorMsg pb-4 ml-1'>Password must contain at least 5
-              characters</p>
+            <p class='errorMsg pb-4 ml-1'>
+              Password must contain at least 5 characters
+            </p>
           {{/if}}
           <label class='label'>
             Verify password
           </label>
-          {{!-- <Input
+          <Input
             @type='password'
             class='input'
-            id="confirm"
+            id='confirm'
             @value={{this.selectUser.confirm}}
-            placeholder="Please verify your password"
+            placeholder='Please verify your password'
           />
           {{#if this.confirmSame}}
-          <p class="errorMsg">Passwords are not similar</p>
-          {{/if}} --}}
+            <p class='errorMsg'>
+              Passwords are not similar
+            </p>
+          {{/if}}
           <div class='flex justify-center my-4'>
             {{!-- {{log this.isAddButtonDisabled}} --}}
             <button
               type='submit'
               class='btnPrimary w-2/3 disabled:cursor-not-allowed'
               disabled={{this.isAddButtonDisabled}}
-              {{!-- {{on 'click' this.addingNewUser}} --}}
             >
               <span class='inline-block mr-2'>
                 Create new account
@@ -99,7 +98,6 @@
                 ></path>
               </svg>
             </button>
-
           </div>
         </form>
         <div class='py-5'>

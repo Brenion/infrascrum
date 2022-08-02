@@ -22,7 +22,6 @@ export default class FormTaskComponent extends Component {
     super(owner, args);
     console.log(this.args.model);
     if (this.args.model.id != null) {
-      console.log('if');
       this.selectTask = {
         id: this.args.model.id,
         title: this.args.model.title,
@@ -42,7 +41,13 @@ export default class FormTaskComponent extends Component {
     //   console.log(element.username);
     // });
   }
+  model(params) {
+    let task = this.store.findRecord('task', params.task_id, {
+      checklist: 'checklist',
+    });
 
+    return task;
+  }
   checkLength(text, select /*, event */) {
     if (select.searchText.length >= 3 && text.length < 3) {
       return '';
