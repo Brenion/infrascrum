@@ -20,7 +20,7 @@ export default class FormTaskComponent extends Component {
 
   constructor(owner, args) {
     super(owner, args);
-    console.log(this.users);
+    console.log(this.args.model);
     if (this.args.model.id != null) {
       console.log('if');
       this.selectTask = {
@@ -36,11 +36,11 @@ export default class FormTaskComponent extends Component {
       };
     } else {
     }
-    this.addUsers = this.user.users;
-    this.addUsers.forEach((element) => {
-      this.names.push(element.username);
-      console.log(element.username);
-    });
+    // this.addUsers = this.user.users;
+    // this.addUsers.forEach((element) => {
+    //   this.names.push(element.username);
+    //   console.log(element.username);
+    // });
   }
 
   checkLength(text, select /*, event */) {

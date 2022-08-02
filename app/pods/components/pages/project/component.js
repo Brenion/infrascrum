@@ -14,9 +14,6 @@ export default class PagesProjectComponent extends Component {
 
   @tracked isEditElement = false;
 
-  // @tracked selectElement = {};
-  // @tracked selectProject = {};
-
   @action editElement() {
     this.isEditElement = !this.isEditElement;
     console.log(this.isEditElement);
@@ -28,20 +25,6 @@ export default class PagesProjectComponent extends Component {
   @action
   taskEdit() {
     const taskId = this.task.id;
-    console.log(taskId);
+    // console.log(taskId);
   }
-  // @action async saveElement(e) {
-  //   e.preventDefault();
-
-  //   const setOnProject = await this.store.peekRecord(
-  //     'project',
-  //     this.selectProject.id
-  //   );
-  //   let rec = this.store.setRecord('element', {
-  //     nameElement: this.selectElement.nameElement,
-  //     colorElement: this.selectElement.colorElement,
-  //     project: setOnProject,
-  //   });
-  //   await rec.save();
-  // }
 }

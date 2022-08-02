@@ -14,9 +14,9 @@ export default class FormElementComponent extends Component {
   constructor(owner, args) {
     super(owner, args);
     this.selectProject = {
-      id: this.args.model.project.get('id'),
+      id: this.args.model.get('id'),
     };
-    console.log(this.args.model.project);
+    // console.log(this.args.model.id);
   }
   @action async saveElement(e) {
     e.preventDefault();
@@ -32,7 +32,7 @@ export default class FormElementComponent extends Component {
     });
     await rec.save();
     this.visible.isVisibleElement = false;
-    console.log(rec);
+    // console.log(rec);
   }
   @action change() {
     this.visible.visibleElement();
