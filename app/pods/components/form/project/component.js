@@ -12,7 +12,7 @@ export default class FormProjectComponent extends Component {
 
   constructor(owner, args) {
     super(owner, args);
-
+    console.log(this.args.model);
     if (this.args.model.projectId != null) {
       console.log('if');
       this.selectProject = {

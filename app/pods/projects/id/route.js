@@ -5,6 +5,7 @@ export default class ProjectsIdRoute extends Route {
   @service store;
   model(params) {
     let project = this.store.findRecord('project', params.id);
+    console.log(project);
     return project;
   }
 }
