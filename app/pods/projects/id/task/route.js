@@ -3,8 +3,11 @@ import { service } from '@ember/service';
 
 export default class ProjectsIdTaskRoute extends Route {
   @service store;
-  model(params) {
-    let task = this.store.findRecord('task', params.id);
+  async model(params) {
+    //let project = await this.store.project('project');
+    let task = await this.store.findRecord('task', params.task_id, {
+      checklist: 'checklists',
+    });
 
     return task;
   }

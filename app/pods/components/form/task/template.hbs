@@ -82,7 +82,7 @@
                 {{/if}}
               </div>
               {{! -------------- Description----------- }}
-              <div class="flex flex-col justify-between mr-8">
+              <div class="justify-between mr-8">
                 <label class="label" for="">
                   Description
                 </label>
@@ -197,30 +197,37 @@
               </div>
             </div>
             {{! ----------------routes--------- }}
-            <div class="w-1/2 justify-around mt-1">
-              <LinkTo
-                @route="projects.id.task.comments"
-                @activeClass="border-b-2 border-blue-600"
-                class="pb-1 mr-2"
-              >
-                Comments
-              </LinkTo>
-              <LinkTo
-                @route="projects.id.task.checklists"
-                @activeClass="border-b-2 border-blue-600"
-                class="pb-1"
-              >
-                Checklists
-              </LinkTo>
-            </div>
+            {{#if @model.id}}
+              <div class="flex flex-col justify-around h-full">
+                <div class="mb-4">
+                  <LinkTo
+                    @route="projects.id.task.comments"
+                    @activeClass="border-b-2 border-blue-600"
+                    class="pb-1"
+                  >
+                    Comments
+                  </LinkTo>
+                  <LinkTo
+                    @route="projects.id.task.checklists"
+                    @activeClass="border-b-2 border-blue-600"
+                    class="pb-1"
+                  >
+                    Checklists
+                  </LinkTo>
+                </div>
+                <div class="border">
+                  {{yield @selectTask}}
+                </div>
+              </div>
+            {{/if}}
           </div>
           <div class="my-2">
             {{! ------------------USER------------------------ }}
             <div class="flex justify-between items-center">
-              {{#if @model.id}}
-                <div class="flex">
+              <div class="flex">
+                {{#if @model.id}}
                   {{#each this.selectTask.users as |user|}}
-                    <div class="flex w-12 h-12 m-1">
+                    <div class="flex w-12 h-12 -m-2">
                       <img
                         class="object-cover rounded-3xl"
                         src={{user.image}}
@@ -228,61 +235,61 @@
                       />
                     </div>
                   {{/each}}
-                </div>
-              {{else}}
-                <div class="flex text-gray-400 items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="mr-2 h-6 w-6 inline-block"
-                    aria-hidden="true"
-                    role="img"
-                    width="1em"
-                    height="1em"
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 24 24"
+                {{else}}
+                  <div class="flex text-gray-400 items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="mr-2 h-6 w-6 inline-block"
+                      aria-hidden="true"
+                      role="img"
+                      width="1em"
+                      height="1em"
+                      preserveAspectRatio="xMidYMid meet"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8 12.052c1.995 0 3.5-1.505 3.5-3.5s-1.505-3.5-3.5-3.5s-3.5 1.505-3.5 3.5s1.505 3.5 3.5 3.5zM9 13H7c-2.757 0-5 2.243-5 5v1h12v-1c0-2.757-2.243-5-5-5zm11.293-4.707L18 10.586l-2.293-2.293l-1.414 1.414l2.292 2.292l-2.293 2.293l1.414 1.414l2.293-2.293l2.294 2.294l1.414-1.414L19.414 12l2.293-2.293z"
+                      ></path>
+                    </svg>
+                    <p class="text-sm">
+                      No user(s) assigned to this task yet !
+                    </p>
+                  </div>
+                {{/if}}
+                {{! ---------------------------------- }}
+                <div class="flex justify-end">
+                  <LinkTo
+                    @route="projects.id"
+                    class="transition duration-200 mx-2 px-4 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 hover:text-red-400 focus:outline-none focus:bg-gray-200 ring-inset"
                   >
-                    <path
-                      fill="currentColor"
-                      d="M8 12.052c1.995 0 3.5-1.505 3.5-3.5s-1.505-3.5-3.5-3.5s-3.5 1.505-3.5 3.5s1.505 3.5 3.5 3.5zM9 13H7c-2.757 0-5 2.243-5 5v1h12v-1c0-2.757-2.243-5-5-5zm11.293-4.707L18 10.586l-2.293-2.293l-1.414 1.414l2.292 2.292l-2.293 2.293l1.414 1.414l2.293-2.293l2.294 2.294l1.414-1.414L19.414 12l2.293-2.293z"
-                    ></path>
-                  </svg>
-                  <p class="text-sm">
-                    No user(s) assigned to this task yet !
-                  </p>
-                </div>
-              {{/if}}
-              {{! ---------------------------------- }}
-              <div class="flex justify-end">
-                <LinkTo
-                  @route="projects.id"
-                  class="transition duration-200 mx-2 px-4 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 hover:text-red-400 focus:outline-none focus:bg-gray-200 ring-inset"
-                >
-                  Cancel
-                </LinkTo>
-                <button
-                  class="btnPrimary px-6 mr-4 flex items-center"
-                  type="submit"
-                >
-                  {{#if @model.id}}
-                    Update
-                  {{else}}
-                    Create
-                  {{/if}}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="ml-1 h-4 w-4 inline-block"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
+                    Cancel
+                  </LinkTo>
+                  <button
+                    class="btnPrimary px-6 mr-4 flex items-center"
+                    type="submit"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                </button>
+                    {{#if @model.id}}
+                      Update
+                    {{else}}
+                      Create
+                    {{/if}}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="ml-1 h-4 w-4 inline-block"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
