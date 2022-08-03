@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class UiUserSelectorComponent extends Component {
-  //@service user;
+  @service user;
 
   @service store;
   @tracked utilisateurs = '';
@@ -24,9 +24,9 @@ export default class UiUserSelectorComponent extends Component {
       users: this.args.project.users,
     };
 
-    this.addedUser = this.user.users;
-    this.error = 'User does not exist';
-    this.errorExist = 'User already exists on project';
+    // this.addedUser = this.user.users;
+    // this.error = 'User does not exist';
+    // this.errorExist = 'User already exists on project';
   }
 
   @action async saveUser(e) {
