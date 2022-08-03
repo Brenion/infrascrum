@@ -5,6 +5,7 @@ import { service } from '@ember/service';
 
 export default class PagesProjectComponent extends Component {
   @tracked taskId = '';
+  @tracked checkbox = false;
 
   @service store;
   @action deleteTask(task, e) {
@@ -30,18 +31,12 @@ export default class PagesProjectComponent extends Component {
     const taskId = this.task.id;
     console.log(taskId);
   }
-  // @action async saveElement(e) {
-  //   e.preventDefault();
-
-  //   const setOnProject = await this.store.peekRecord(
-  //     'project',
-  //     this.selectProject.id
-  //   );
-  //   let rec = this.store.setRecord('element', {
-  //     nameElement: this.selectElement.nameElement,
-  //     colorElement: this.selectElement.colorElement,
-  //     project: setOnProject,
-  //   });
-  //   await rec.save();
-  // }
+  @action isChecked() {
+    this.checkbox = !this.checkbox;
+    if (this.checkbox == false) {
+      console.log('pas terminé');
+    } else {
+      console.log('tache finie');
+    }
+  }
 }

@@ -8,6 +8,7 @@ export default class FormTaskComponent extends Component {
   @service router;
   @service store;
   @service user;
+  @tracked userId;
   @tracked addUsers;
   @tracked selectTask = {};
   @tracked selectElement = {};
@@ -62,7 +63,7 @@ export default class FormTaskComponent extends Component {
     if (this.args.model.id != undefined) {
       const rec = await this.store.findRecord('task', this.selectTask.id);
       rec.setProperties(this.selectTask);
-      await rec.save();
+      await rec.changedAttributes();
     } else {
       // eslint-disable-next-line prettier/prettier
 
@@ -73,10 +74,10 @@ export default class FormTaskComponent extends Component {
       });
 
       const setOnElement = await this.store.findRecord('element', this.ids);
-      const setOnUser = await this.store.findRecord('user', 1);
+      console.log(this.selectedUser);
       let rec = this.store.createRecord('task', {
         title: this.selectTask.title,
-        users: [setOnUser],
+        users: this.selectedUser,
         time: this.selectTask.time,
         element: setOnElement,
         colorTask: this.selectTask.colorTask,

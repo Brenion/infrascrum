@@ -32,6 +32,7 @@ export default [
     colorTask: '#d8b4fe',
     typeId: 1,
     elementId: 2,
+    checklistIds: [1, 2],
     userIds: [2],
   },
   {
