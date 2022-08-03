@@ -81,5 +81,6 @@ export default class FormNewUserComponent extends Component {
     // console.log(newUser);
     await newUser.save();
     console.log(newUser);
+    this.router.transitionTo('login.login');
   }
 }
