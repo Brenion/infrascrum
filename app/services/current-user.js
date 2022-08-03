@@ -14,6 +14,7 @@ export default class CurrentUserService extends Service {
     if (userId) {
       let user = await this.store.findRecord('user', userId);
       this.user = user;
+      return this.user;
     }
   }
 }

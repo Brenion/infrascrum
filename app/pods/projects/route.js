@@ -1,11 +1,15 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class ProjectsRoute extends Route {
-  @service user;
   @service store;
+  @service currentUser;
+  @tracked user;
   async model() {
-    await this.user.model();
-    return this.store.findAll('project');
+    this.user = await this.currentUser.load();
+
+    // return this.store.findAll('project');
+    return await this.store.query('project', { userId: this.user.id });
   }
 }

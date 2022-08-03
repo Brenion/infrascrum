@@ -20,7 +20,7 @@ export default class FormTaskComponent extends Component {
 
   constructor(owner, args) {
     super(owner, args);
-
+    console.log(this.args.model);
     if (this.args.model.id != null) {
       this.selectTask = {
         id: this.args.model.id,
@@ -35,10 +35,11 @@ export default class FormTaskComponent extends Component {
       };
     } else {
     }
-    this.addUsers = this.user.users;
-    this.addUsers.forEach((element) => {
-      this.names.push(element.username);
-    });
+    // this.addUsers = this.user.users;
+    // this.addUsers.forEach((element) => {
+    //   this.names.push(element.username);
+    //   console.log(element.username);
+    // });
   }
   model(params) {
     let task = this.store.findRecord('task', params.task_id, {
