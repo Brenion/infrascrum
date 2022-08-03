@@ -12,8 +12,9 @@ export default class FormProjectComponent extends Component {
 
   constructor(owner, args) {
     super(owner, args);
+
     console.log(this.args.model);
-    if (this.args.model.projectId != null) {
+    if (this.args.model.projectId != null || this.args.model.get('id')) {
       console.log('if');
       this.selectProject = {
         id: this.args.model.id,
@@ -23,7 +24,6 @@ export default class FormProjectComponent extends Component {
         description: this.args.model.description,
         image: this.args.model.image,
         elements: this.args.model.elements,
-        admin: this.args.model.admin,
         users: this.args.model.users,
       };
     } else {
@@ -32,10 +32,12 @@ export default class FormProjectComponent extends Component {
   }
   @action async saveProject(e) {
     e.preventDefault();
-    if (this.args.model.projectId != null) {
+    console.log('ici');
+    console.log(this.selectProject);
+    if (this.args.model.projectId != null || this.args.model.get('id')) {
       const rec = await this.store.findRecord('project', this.selectProject.id);
-      rec.setProperties(this.selectProject);
-      await rec.save();
+      await rec.setProperties(this.selectProject);
+      await rec.changedAttributes();
       this.router.transitionTo('projects');
     } else {
       const setOnUser = await this.store.findRecord('user', this.admin);
@@ -49,7 +51,7 @@ export default class FormProjectComponent extends Component {
       });
       console.log(rec);
       await rec.save();
-      this.router.transitionTo('projects');
+      this.router.transitionTo('index');
     }
   }
 }

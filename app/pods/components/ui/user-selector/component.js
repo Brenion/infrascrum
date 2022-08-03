@@ -4,18 +4,22 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class UiUserSelectorComponent extends Component {
-  @service user;
+  //@service user;
+
   @service store;
   @tracked utilisateurs = '';
   @tracked addedUser;
   @tracked project = {};
   @tracked isUser = false;
   @tracked isUserTrue = false;
-
+  async model() {
+    return await this.store.findAll('user');
+  }
   constructor(owner, args) {
     super(owner, args);
+    console.log(this.model);
     this.project = {
-      id: this.args.project.id,
+      id: this.args.project.get('id'),
       admin: this.args.project.admin,
       users: this.args.project.users,
     };

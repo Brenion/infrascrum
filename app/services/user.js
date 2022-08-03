@@ -9,5 +9,6 @@ export default class UserService extends Service {
   async model() {
     let users = await this.store.findAll('user');
     this.users = users;
+    return this.users;
   }
 }

@@ -37,28 +37,4 @@ export default class FormNewUserComponent extends Component {
     await newUser.save();
     console.log(newUser);
   }
-
-  // get isAddButtonDisabled() {
-  //   return (
-  //     this.selectUser.username.value === '' ||
-  //     this.selectUser.email.value === '' ||
-  //     this.selectUser.password.value === '' ||
-  //     this.selectUser.confirm.value === ''
-  //   );
-  // }
-  // get confirmSame() {
-  //   if (this.selectUser.password === this.selectUser.confirm) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
-
-  // get minimumChar() {
-  //   if (this.selectUser.password.length < 5) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
 }
