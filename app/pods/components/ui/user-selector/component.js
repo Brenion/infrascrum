@@ -20,7 +20,8 @@ export default class UiUserSelectorComponent extends Component {
       users: this.args.project.users,
     };
 
-    this.addedUser = this.user.users;
+    // this.addedUser = this.user.users;
+    // console.log(this.addedUser);
     this.error = 'User does not exist';
     this.errorExist = 'User already exists on project';
   }
