@@ -1,110 +1,111 @@
-<div class='formBackground sm:py-12'>
-  <div class='formContainer xs:p-0'>
+<div class="formBackground sm:py-12">
+  <div class="formContainer xs:p-0">
     <div>
-      <img src='../images/logo.png' alt='infrascrum' class='w-12 mx-auto' />
+      <img src="../images/logo.png" alt="infrascrum" class="w-12 mx-auto" />
     </div>
-    <h1 class='font-bold text-center text-3xl mb-5'>
+    <h1 class="font-bold text-center text-3xl mb-5">
       WELCOME BACK !
     </h1>
-    <div class='form'>
-      <form class='px-5 py-7'>
-        <label for='identification' class='label'>
+    <div class="form">
+      <form class="px-5 py-7">
+        <label for="identification" class="label">
           Username
         </label>
         {{! template-lint-disable require-input-label }}
         <Input
-          @type='text'
-          id='identification'
-          class='input'
-          placeholder='Enter your username'
+          @type="text"
+          id="identification"
+          class="input"
+          placeholder="Enter your username"
           @value={{this.username}}
           {{!-- {{on "change" this.updateIdentification}}  --}}
         />
-        <label for='password' id='password' class='label'>
+        <label for="password" id="password" class="label">
           Password
         </label>
         <Input
-          @type='text'
-          class='input'
-          placeholder='Enter your password'
+          @type="password"
+          class="input"
+          placeholder="Enter your password"
           @value={{this.password}}
           {{!-- {{on "change" this.updatePassword}} --}}
         />
-
         <button
-          type='button'
-          class='btnPrimary w-full disabled:cursor-not-allowed'
-          {{on 'click' (fn @authenticate this.username this.password)}}
+          type="button"
+          class="btnPrimary w-full disabled:cursor-not-allowed"
           disabled={{this.isAddButtonDisabled}}
+          {{on 'click' (fn @authenticate this.username this.password)}}
         >
-          <span class='inline-block mr-2'>
+          <span class="inline-block mr-2">
             Login
           </span>
           <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            class='w-4 h-4 inline-block'
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-4 h-4 inline-block"
           >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M17 8l4 4m0 0l-4 4m4-4H3'
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
             ></path>
           </svg>
         </button>
         {{#if @errorMessage}}
-          <p class='text-red-500 text-xs my-4 mx-2'>{{@errorMessage}}</p>
+          <p class="text-red-500 text-xs my-4 mx-2">
+            {{@errorMessage}}
+          </p>
         {{/if}}
       </form>
-      <div class='py-5'>
-        <div class='flex justify-center'>
+      <div class="py-5">
+        <div class="flex justify-center">
           <LinkTo
-            @route='login.change-password'
-            class='text-center sm:text-left whitespace-nowrap'
+            @route="login.change-password"
+            class="text-center sm:text-left whitespace-nowrap"
           >
-            <button class='btnSecondary' type='button'>
+            <button class="btnSecondary" type="button">
               <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                class='w-4 h-4 inline-block align-text-top'
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="w-4 h-4 inline-block align-text-top"
               >
                 <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z'
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
                 ></path>
               </svg>
-              <span class='inline-block ml-1'>
+              <span class="inline-block ml-1">
                 Forgot Password
               </span>
             </button>
           </LinkTo>
           <LinkTo
-            @route='index'
-            class='text-center sm:text-right whitespace-nowrap items-center'
+            @route="index"
+            class="text-center sm:text-right whitespace-nowrap items-center"
           >
-            <button type='button' class='btnSecondary'>
+            <button type="button" class="btnSecondary">
               <svg
-                xmlns='http://www.w3.org/2000/svg'
-                class='w-4 h-4 inline-block align-text-bottom'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                stroke-width='2'
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 inline-block align-text-bottom"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
               >
                 <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 ></path>
               </svg>
-              <span class='inline-block ml-1'>
+              <span class="inline-block ml-1">
                 Home
               </span>
             </button>
@@ -112,12 +113,12 @@
         </div>
       </div>
     </div>
-    <div class='text-sm font-medium text-gray-500 dark:text-gray-300 mt-2 pl-4'>
+    <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-2 pl-4">
       Not registered?
-      <LinkTo @route='login.new-user'>
+      <LinkTo @route="login.new-user">
         <a
-          href='#'
-          class='text-nightblue hover:underline hover:text-middleblue'
+          href="#"
+          class="text-nightblue hover:underline hover:text-middleblue"
         >
           Create account
         </a>
