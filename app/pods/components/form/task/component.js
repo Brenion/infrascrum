@@ -74,10 +74,11 @@ export default class FormTaskComponent extends Component {
       });
 
       const setOnElement = await this.store.findRecord('element', this.ids);
+      const setOnUser = await this.store.findRecord('user', 1);
       console.log(this.selectedUser);
       let rec = this.store.createRecord('task', {
         title: this.selectTask.title,
-        users: this.selectedUser,
+        users: [setOnUser],
         time: this.selectTask.time,
         element: setOnElement,
         colorTask: this.selectTask.colorTask,
