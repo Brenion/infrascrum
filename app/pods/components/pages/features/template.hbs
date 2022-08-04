@@ -1,26 +1,37 @@
 <div
-  class='w-2/3 h-2/3 border rounded-lg shadow-xl border-gray-300 bg-white'
+  class='w-2/3 h-2/3 border rounded-lg shadow-xl border-gray-300 bg-gray-300'
   {{on-click-outside @visibleFeature}}
 >
-  <ul class='ml-4 mt-4'>
-    <li> Header: Patrick presque fini</li>
-    <li> Navbar latérale: Milton / Patrick</li>
-    <li> Form Login: Andy / Esteban</li>
-    <li> Form newUser: </li>
-    <li> Form changePassword:</li>
-    <li> Form Project:</li>
-    <li> Form element:</li>
-    <li> Form Task:</li>
-    <li> Form Checklist:</li>
-    <li> Pages Login:</li>
-    <li> Pages Admin:</li>
-    <li> Pages Project:</li>
-    <li> Pages Element:</li>
-    <li> Pages Checklist:</li>
-    <li> Pages Comments:</li>
-    <li> Pages Comments/Comment:</li>
-    <li> Pages User: Pages</li>
-    <li> Features: Patrick presque fini</li>
+  <ul class='formContainer bg-gray-200 rounded-md mt-8'>
+    <div></div>
+    <li class="text-nightblue rounded-md">Registe<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">r</a>: <span class="text-middleblue hover:text-chartreuse">Créer un user</span></li>
+    <li class="text-nightblue rounded-md">Login: <span class="text-middleblue hover:text-chartreuse"><a href="https://www.youtube.com/watch?v=kvBUaW7aQ8c">Connect</a> le user</span></li>
 
+
+    <div >
+    <ul class="text-nightblue rounded-md">Project: 
+      <li class="text-middleblue hover:text-chartreuse w-1/3">-<a href="https://matias.ma/nsfw/"> Créer </a> un projet</li>
+      <li class="text-middleblue hover:text-chartreuse">- Modifier le projet et y ajouter des users</li>
+      <li class="text-middleblue hover:text-chartreuse">- Supprimer le projet </li>
+    </ul>
+    </div>
+
+    <div >
+    <ul class="text-nightblue rounded-md">Element: 
+      {{!-- template-lint-disable no-whitespace-for-layout --}}
+      <li class="text-middleblue hover:text-chartreuse w-1/3">- Créer un éléments</li>
+      <li class="text-middleblue hover:text-chartreuse">- Modifier un élément et y ajouter des users</li>
+      <li class="text-middleblue hover:text-chartreuse">- Supprimer un élément existant </li>
+    </ul>
+    </div>
+    <div >
+    <ul class="text-nightblue rounded-md">Task: 
+      {{!-- template-lint-disable no-whitespace-for-layout --}}
+      <li class="text-middleblue hover:text-chartreuse w-1/3">- Créer une tâche</li>
+      <li class="text-middleblue hover:text-chartreuse">- Modifier une tâche et y ajouter des users</li>
+      <li class="text-middleblue hover:text-chartreuse">- Supprimer une tâche existant </li>
+    </ul>
+    </div>
   </ul>
+  
 </div>
