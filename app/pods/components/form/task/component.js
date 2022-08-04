@@ -9,6 +9,7 @@ export default class FormTaskComponent extends Component {
   @service store;
   @service user;
   @tracked addUsers;
+  @tracked addElements;
   @tracked selectTask = {};
   @tracked selectProject = {};
   @tracked record = {};
@@ -17,13 +18,23 @@ export default class FormTaskComponent extends Component {
   @tracked isTime = false;
   @tracked names = [];
   @tracked selectedUser = [];
+  @tracked elementName = [];
+  @tracked elements = [];
+  @tracked selectedElement = [];
+  @tracked element = [];
 
   constructor(owner, args) {
     super(owner, args);
-    console.log(this.args.model);
+
+    console.log(this.args.element.objet);
+    this.args.element.forEach((element) => {
+      console.log(element.nameElement);
+    });
+
     if (this.args.model.id != null) {
+      console.log('ici');
       this.selectTask = {
-        id: this.args.model.id,
+        id: this.args.model.get('id'),
         title: this.args.model.title,
         time: this.args.model.time,
         colorTask: this.args.model.colorTask,
@@ -34,21 +45,30 @@ export default class FormTaskComponent extends Component {
         checklists: this.args.model.checklist,
       };
     } else {
+      this.element = this.args.element;
+      console.log(this.element);
     }
     // this.addUsers = this.user.users;
     // this.addUsers.forEach((element) => {
     //   this.names.push(element.username);
     //   console.log(element.username);
     // });
-  }
-  model(params) {
-    let task = this.store.findRecord('task', params.task_id, {
-      checklist: 'checklist',
-    });
+    this.addElements = this.element;
 
-    return task;
+    this.args.element.forEach((element) => {
+      this.elements.push({ name: element.nameElement, id: element.id });
+      this.elementName.push(element.nameElement);
+    });
   }
+
   checkLength(text, select /*, event */) {
+    if (select.searchText.length >= 3 && text.length < 3) {
+      return '';
+    } else {
+      return text.length >= 3;
+    }
+  }
+  checkLengthElement(text, select /*, event */) {
     if (select.searchText.length >= 3 && text.length < 3) {
       return '';
     } else {
@@ -57,19 +77,44 @@ export default class FormTaskComponent extends Component {
   }
   @action async saveTask(e) {
     e.preventDefault();
+    if (this.args.model.id != null) {
+      // const setOnElement = await this.store.findRecord('element', 1);
+      // const setOnUser = await this.store.findRecord('user', 1);
+      // let rec = this.store.createRecord('task', {
+      //   title: this.selectTask.title,
+      //   users: [setOnUser],
+      //   time: this.selectTask.time,
+      //   element: setOnElement,
+      //   colorTask: this.selectTask.colorTask,
+      //   description: this.selectTask.description,
+      // });
+      // await rec.save();
+      // this.router.transitionTo('projects.id');
+    } else {
+      let elementId;
+      console.log(this.selectedElement);
+      console.log(this.element);
+      this.elements.forEach((element) => {
+        if (element.name.includes(this.selectedElement)) {
+          elementId = element.id;
+          console.log();
+        }
+      });
 
-    const setOnElement = await this.store.findRecord('element', 1);
-    const setOnUser = await this.store.findRecord('user', 1);
-    let rec = this.store.createRecord('task', {
-      title: this.selectTask.title,
-      users: [setOnUser],
-      time: this.selectTask.time,
-      element: setOnElement,
-      colorTask: this.selectTask.colorTask,
-      description: this.selectTask.description,
-    });
-    await rec.save();
-    this.router.transitionTo('projects.id');
+      console.log('create');
+      console.log(this.selectTask.element);
+      let rec = this.store.createRecord('task', {
+        title: this.selectTask.title,
+        time: this.selectTask.time,
+        status: false,
+        element: elementId,
+        color: this.selectTask.colorTask,
+        description: this.selectTask.description,
+      });
+      console.log(rec);
+      await rec.save();
+      this.router.transitionTo('projects.id');
+    }
   }
 
   // action sur bouton

@@ -4,7 +4,11 @@
     <NavBar @model={{@model}} />
   </div>
   <div class='flex-grow absolute -z-20 left-40'>
-    <Pages::Project @model={{@model}} />
+    <Pages::Project
+      @model={{@model.project}}
+      @element={{@model.element}}
+      @task={{@model.task}}
+    />
   </div>
 </div>
 

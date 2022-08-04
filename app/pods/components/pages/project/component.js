@@ -5,15 +5,21 @@ import { service } from '@ember/service';
 
 export default class PagesProjectComponent extends Component {
   @tracked taskId = '';
-
   @service store;
+
   @action deleteTask(task, e) {
     e.preventDefault();
     task.destroyRecord();
   }
+  constructor(owner, args) {
+    super(owner, args);
+    console.log(this.elements);
+  }
 
   // @tracked isEditElement = false;
-
+  // get filteredElement() {
+  //   console.log();
+  // }
   @action editElement() {
     this.isEditElement = !this.isEditElement;
     console.log(this.isEditElement);
