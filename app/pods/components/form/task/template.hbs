@@ -153,13 +153,12 @@
               {{! ------------element----------- }}
 
 
-
-                          <div class='flex mb-4'>
+              <div class='flex mb-4'>
                 <label class='mt-2 label' for='selectElement'>Element</label>
                 <select name="" id="selectElement" class="mr-8 ml-4">
                   {{#each @model.element as |element|}}
                   {{!-- template-lint-disable no-arguments-for-html-elements --}}
-                  <option value={{@this.selectTask.element}}>{{element.nameElement}}</option>
+                  <option value={{this.selectTask.element}}>{{element.nameElement}}</option>
                   {{/each}}
                 </select>
               </div>
