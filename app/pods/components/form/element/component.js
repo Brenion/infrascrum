@@ -14,7 +14,7 @@ export default class FormElementComponent extends Component {
   constructor(owner, args) {
     super(owner, args);
     this.selectProject = {
-      id: this.args.model.get('id'),
+      id: this.args.model.id,
     };
     // console.log(this.args.model.id);
   }
@@ -23,7 +23,7 @@ export default class FormElementComponent extends Component {
 
     const setOnProject = await this.store.peekRecord(
       'project',
-      this.selectProject.id
+      this.selectProject.get('id')
     );
     let rec = this.store.createRecord('element', {
       nameElement: this.selectElement.nameElement,
